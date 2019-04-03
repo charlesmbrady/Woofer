@@ -211,9 +211,10 @@ function initMap () {
   google.maps.Map(document.getElementById('map'), location);
 
   // Locate nearest dog park
+
   var request = {
-      location: center,
-      radius: 32188,
+      location: { lat: 35.913200, lng: -79.055847 },
+      radius: 80467,
       type: ['dog park']
   };
 
@@ -222,7 +223,7 @@ function initMap () {
   service.nearbySearch(request, callback);
 
   function callback (results, status)   {
-      if (status === google.maps.places.PlacesServicesStatus.OK)    {
+      if (status === google.maps.places.PlacesServicesStatus.ok)    {
           for (var i = 0; i < results.length; i++)  {
               createMarker(results[i]);
           };
