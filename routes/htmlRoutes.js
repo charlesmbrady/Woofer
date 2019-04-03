@@ -65,7 +65,7 @@ module.exports = (db) => {
       };
       res.render('console', user);
     } else {
-      res.render('console');
+      res.render('dashboard');
     }
   });
 
