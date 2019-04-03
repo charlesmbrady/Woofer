@@ -30,6 +30,9 @@ const upload = multer({
 module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
   const AppController = require('../controllers/appController')(db);
+  const DogController = require('../controllers/dogController')(db);
+  const LocationController = require('../controllers/locationController')(db);
+  const InteractionController = require('../controllers/interactionController')(db);
 
   // Authentication
   router.post('/register', AuthController.register);
