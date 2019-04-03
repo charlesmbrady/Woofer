@@ -37,6 +37,7 @@ if (app.get('env') !== 'development') {
     next(err);
   });
 }
+//comment
 
 db.sequelize.sync({ force: process.env.FORCE_SYNC === 'true' }).then(() => {
   if (process.env.FORCE_SYNC === 'true') {
