@@ -2,10 +2,10 @@ $('#add-user').on('click', function (event) {
   event.preventDefault();
   let file = document.getElementById('userPic').files[0];
   console.log("FILE", file);
-  let userInfo = new FormData;
+  let userInfo = new FormData();
   userInfo.append('userPic', file);
   let userArray = [];
-  const newAccount = {
+  let newAccount = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
@@ -28,7 +28,7 @@ $('#add-user').on('click', function (event) {
       cache: false,
       success: function(data) {
         console.log(data);
-      window.location.href = '/';
+      // window.location.href = '/';
       }
     });
   } else {
@@ -214,6 +214,7 @@ const postDog = (newDog) => {
 };
 
 // Map options
+// var latLng = google.maps.LatLng (35.913200, -79.055847);
 function initMap () {
   var location = {
     zoom: 13,
@@ -225,9 +226,10 @@ function initMap () {
   google.maps.Map(document.getElementById('map'), location);
 
   // Locate nearest dog park
+
   var request = {
-      location: center,
-      radius: 32188,
+      location: { lat: 35.913200, lng: -79.055847 },
+      radius: 80467,
       type: ['dog park']
   };
 
@@ -236,7 +238,7 @@ function initMap () {
   service.nearbySearch(request, callback);
 
   function callback (results, status)   {
-      if (status === google.maps.places.PlacesServicesStatus.OK)    {
+      if (status === google.maps.places.PlacesServicesStatus.ok)    {
           for (var i = 0; i < results.length; i++)  {
               createMarker(results[i]);
           };
