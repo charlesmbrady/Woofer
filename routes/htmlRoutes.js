@@ -11,7 +11,7 @@ module.exports = (db) => {
   });
 
   // Load profile page
-  router.get('/editprofile', (req, res) => {
+  router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {
       db.User.findOne({
         where: {
@@ -23,7 +23,7 @@ module.exports = (db) => {
           isloggedin: req.isAuthenticated()
         };
         // console.log(user);
-        res.render('editprofile', user);
+        res.render('profile', user);
       });
     } else {
       res.redirect('/');
