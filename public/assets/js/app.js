@@ -1,20 +1,35 @@
 $('#add-user').on('click', function (event) {
   event.preventDefault();
-
-  const newAccount = {
+  let file = document.getElementById('userPic').files[0];
+  console.log("FILE", file);
+  let userInfo = new FormData();
+  userInfo.append('userPic', file);
+  let userArray = [];
+  let newAccount = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim()
   };
+  userArray.push(newAccount);
+  userInfo.append('userArray', JSON.stringify(userArray));
+  console.log("USER ARRAY", userArray);
+  console.log("New Account", newAccount);
+  
 
   if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
-      data: newAccount
-    }).then(() => {
-      window.location.href = '/console';
+      enctype: 'multipart/form-data',
+      data: userInfo,
+      processData: false,
+      contentType: false,
+      cache: false,
+      success: function(data) {
+        console.log(data);
+      // window.location.href = '/';
+      }
     });
   } else {
     console.log('**Please fill out entire form**');
