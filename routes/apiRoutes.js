@@ -24,7 +24,7 @@ const fileFilter = (req, file, cb) => {
 // pass storage params for multer
 const upload = multer({
   storage: storage,
-  limits: 1024 * 1024 * 5,
+  limits: 500 * 500 * 5,
   fileFilter: fileFilter
 });
 module.exports = (passport, db) => {
