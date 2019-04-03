@@ -66,5 +66,14 @@ module.exports = function (sequelize, DataTypes) {
     return values;
   };
 
+  User.associate = (models) => {
+    User.hasMany(models.Dog, {
+      onDelete: 'cascade'
+    });
+    //link messages with users
+    User.hasMany(models.Message);
+    //link interactions with users
+    User.hasMany(models.Interaction);
+  };
   return User;
 };
