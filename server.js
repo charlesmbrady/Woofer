@@ -8,7 +8,14 @@ const moment = require('moment');
 const helmet = require('helmet');
 const PORT = process.argv[2] || process.env.PORT || 3333;
 const app = express();
+const http = require('http');
+
+const server = http.createServer(app);
+
 const db = require('./models');
+
+//setup socket.io
+const io = require('socket.io')(server);
 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
@@ -21,7 +28,7 @@ app.use(express.static('public'));
 require('./config/passport')(db, app, passport); // pass passport for configuration
 
 // Define our routes
-app.use('/api', require('./routes/apiRoutes')(passport, db));
+app.use('/api', require('./routes/apiRoutes')(passport, db, io));
 app.use(require('./routes/htmlRoutes')(db));
 
 // Secure express app
@@ -44,7 +51,7 @@ db.sequelize.sync({ force: process.env.FORCE_SYNC === 'true' }).then(() => {
     require('./db/seed')(db);
   }
 
-  app.listen(PORT, () => {
+  server.listen(PORT, () => {
     console.log(`App listening on port: ${PORT}`);
   });
 });
