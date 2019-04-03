@@ -10,7 +10,7 @@
       <div class="card-body">
         <h5 class="card-title">Hi, there!</h5>
         <p class="card-text">Chat with nearby dog owners and schedule playdates</p>
-        <a href="#" class="btn btn-primary">Register</a>
+        <a href="/register" class="btn btn-primary">Register</a>
       </div>
     </div>
     <hr class="my-4">
@@ -18,6 +18,7 @@
     <div>
       {{#if isloggedin}}
         <p>You are logged in as {{user.firstName}}</p>
+        <a href="/console"> <button type="btn" class="btn">Home</button></a>
         <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
       {{else}}
         <p>You need to log in to use this app</p>
