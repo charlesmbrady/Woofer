@@ -28,7 +28,7 @@ $('#add-user').on('click', function (event) {
       cache: false,
       success: function(data) {
         console.log(data);
-      // window.location.href = '/';
+      window.location.href = '/';
       }
     });
   } else {
