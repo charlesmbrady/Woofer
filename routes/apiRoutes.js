@@ -24,7 +24,7 @@ const fileFilter = (req, file, cb) => {
 // pass storage params for multer
 const upload = multer({
   storage: storage,
-  limits: 1024 * 1024 * 5,
+  limits: 500 * 500 * 5,
   fileFilter: fileFilter
 });
 module.exports = (passport, db) => {
@@ -35,7 +35,7 @@ module.exports = (passport, db) => {
   const InteractionController = require('../controllers/interactionController')(db);
 
   // Authentication
-  router.post('/register', AuthController.register);
+  router.post('/register', upload.single('userPic'), AuthController.register);
   router.post('/login', AuthController.login);
   router.get('/logout', AuthController.logout);
   router.put('/user/:id', ensureAuthenticated, AuthController.updateUser);

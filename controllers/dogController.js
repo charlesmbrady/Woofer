@@ -39,7 +39,7 @@ module.exports = function (db) {
         possessive: dogArray[0].possessive,
         situation: dogArray[0].situation,
         playStyle: dogArray[0].playStyle,
-        dogPic: dogArray[0].path,
+        dogPic: req.file.path,
         UserId: dogArray[0].UserId
       }).then(result => {
         res.json(result);

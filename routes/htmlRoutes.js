@@ -4,14 +4,14 @@ module.exports = (db) => {
   // Load register page
   router.get('/register', (req, res) => {
     if (req.isAuthenticated()) {
-      res.redirect('/profile');
+      res.redirect('/editprofile');
     } else {
       res.render('register');
     }
   });
 
   // Load profile page
-  router.get('/profile', (req, res) => {
+  router.get('/editprofile', (req, res) => {
     if (req.isAuthenticated()) {
       db.User.findOne({
         where: {
@@ -23,7 +23,7 @@ module.exports = (db) => {
           isloggedin: req.isAuthenticated()
         };
         // console.log(user);
-        res.render('profile', user);
+        res.render('editprofile', user);
       });
     } else {
       res.redirect('/');
@@ -81,7 +81,8 @@ module.exports = (db) => {
     if (req.isAuthenticated()) {
       const user = {
         user: req.session.passport.user,
-        isloggedin: req.isAuthenticated()
+        isloggedin: req.isAuthenticated(),
+        userImg: req.session.passport.user.userPic.replace("public/","")
       };
       res.render('console', user);
     } else {
