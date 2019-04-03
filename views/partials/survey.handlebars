@@ -1,0 +1,154 @@
+{{> nav/nav-block user=false register=true}}
+<header class="create-user-wrap header-wrap" align="center">
+                <h1>Let's get to know your dog!</h1>
+                <h3 id="create-err-msg"></h3>
+</header>
+<div class="container">
+
+            <h3 id="err-msg"></h3>
+    </div>
+    <div class="row">
+            <form id= "create-form" class="col md12">
+                <div class="row">
+                    <div class="input-field col md12">
+                        <label for="name">What's your dog's name</label>
+                        <input type="text" class="validate" id="name" placeholder="Oreo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col md12">
+                        <label for="age">Age</label>
+                        <input type="text" class="validate" id="age" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col md12">
+                        <label for="weight">Weight</label>
+                        <input type="text" class="validate" id="weight" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                     <div class="input-field col md12">
+                        <label for="breed">Breed</label>
+                        <input type="text" class="validate" id="breed" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col md12">
+                        <p>
+                            Is your dog a boy or girl? Fixed?
+                        </p>
+                        <p>
+                        <label>
+                            <input name="type-dog" type="radio" value="male"/>
+                            <span>Male</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input name="type-dog" type="radio" value="female"/>
+                            <span>Female</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input name="type-dog" type="radio" value="neutered-male"/>
+                            <span>Neutered male</span>
+                        </label>
+                        </p>
+                        <p>
+                        <label>
+                            <input name="type-dog" type="radio" value="spayed-female"/>
+                            <span>Spayed female</span>
+                        </label>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col md12">
+                            <p>
+                            Is your dog up to date on vaccinations?
+                            </p>
+                            <p>
+                            <label>
+                                <input name="vaccinated" type="radio" value="true"/>
+                                <span>Yes</span>
+                            </label>
+                            </p>
+                            <p>
+                            <label>
+                                <input name="vaccinated" type="radio" value="false"/>
+                                <span>No</span>
+                            </label>
+                            </p>            
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col md12">
+                        <select  multiple id="issue-type" name="dog-issue">
+                        <option value="" disabled selected>Choose your options</option>
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+                        <option value="children">Children</option>
+                        <option value="dogs">Other Dogs</option>
+                        </select>
+                        <label>Anyone your dog doesn't get along with?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col md12">
+                        <select  multiple id="possessive" name="possessive">
+                        <option value="" disabled selected>Choose your options</option>
+                        <option value="food">Food or Treats</option>
+                        <option value="water">Water</option>
+                        <option value="toys">Toys</option>
+                        </select>
+                        <label>Is your dog possessive of any of the following? Please select all that apply:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col md12">
+                        <select  multiple id="reactive" name="reactive">
+                        <option value="" disabled selected>Choose your options</option>
+                        <option value="leashed">Meeting other dogs when leashed</option>
+                        <option value="un-leashed">Meeting other dogs when unleashed</option>
+                        <option value="fence">When physically separated from another dog through a fence or other barrier</option>
+                        <option value="touched">When unexpectedly touched</option>
+                        <option value="hat">When seeing a person wearing a hat</option> 
+                        </select>
+                        <label>To your knowledge, has your dog ever been reactive in any of the following situations?</label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="input-field col md12">
+                        <select  multiple id="play-style" name="play-style">
+                        <option value="" disabled selected>Choose your options</option>
+                        <option value="wrestling">Wrestling</option>
+                        <option value="boxing">Boxing</option>
+                        <option value="slamming">Slamming</option>
+                        <option value="chasing">Chasing</option>
+                        <option value="tag">Tag</option> 
+                        </select>
+                        <label>What is your dog's play style?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Upload a Picture</span>
+                            <input type="file" id="dog-pic">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                <h2 id="message"></h2>
+                </div>
+
+                <button type="submit" id="add-dog" class="btn btn-primary">Submit</button>
+            </form>
+    </div>
+</div>
