@@ -129,6 +129,7 @@ $('#login').on('click', function (event) {
   });
 });
 
+
 $('#add-dog').on('click', function (e) {
   e.preventDefault();
   const typeDog = $('input[name=type-dog]:checked').val();
@@ -196,3 +197,90 @@ const postDog = (newDog) => {
     }
   });
 };
+
+// Map options
+function initMap () {
+  var location = {
+    zoom: 13,
+    center: { lat: 35.913200, lng: -79.055847 }
+  };
+
+  // New map
+  var map = new
+  google.maps.Map(document.getElementById('map'), location);
+
+  // Locate nearest dog park
+  var request = {
+      location: center,
+      radius: 32188,
+      type: ['dog park']
+  };
+
+  var service = new google.maps.places.PlacesService(map);
+
+  service.nearbySearch(request, callback);
+
+  function callback (results, status)   {
+      if (status === google.maps.places.PlacesServicesStatus.OK)    {
+          for (var i = 0; i < results.length; i++)  {
+              createMarker(results[i]);
+          };
+        };
+      };
+
+  function createMarker (place)  {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+    });
+  };
+
+  // Listen for map click
+  google.maps.event.addListener(map, 'click',
+    function (event) {
+      // Add marker
+      addMarker({ coords: event.latlng });
+    });
+
+  // Add marker
+  // // var marker = new google.maps.Marker({
+  // //   position: { lat: 35.893357, lng: -78.848909 },
+  // //   maps: map
+  // // });
+
+  // // var infoWindow = new google.maps.InfoWindow({
+  // //   content: <h1>Morrisville, NC</h1>
+  // // });
+
+  // // marker.addListener('click', function () {
+  // //   infoWindow.open(map, marker);
+  // // });
+
+  addMarker({
+    coords: { lat: 35.893357, lng: -78.848909 },
+    content: '<h1>Morrisville, NC</h1>'
+  });
+
+  // Add marker function
+  function addMarker (props) {
+    var marker = new google.maps.Marker({
+      position: props.coords,
+      maps: map,
+      content: props.content
+    });
+
+      // Check content
+    if (props.content) {
+      var infoWindow = new google.maps.InfoWindow({
+        content: props.content
+      });
+
+        infoWindow.open(map, marker);
+      };
+    };
+  };
+
+initMap();
+
+
