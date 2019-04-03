@@ -7,6 +7,14 @@ module.exports = (db) => {
     userPic: 'public/assets/uploads/download.jpeg',
     isAdmin: true
   });
+  db.User.create({
+    firstName: 'Chuck',
+    lastName: 'Brady',
+    email: 'cb@email.com',
+    password: process.env.USER_PWD,
+    isAdmin: false,
+    userPic: "public/assets/uploads/tormund.jpeg"
+  });
   db.User.bulkCreate([
     {
     firstName: 'Jane',
