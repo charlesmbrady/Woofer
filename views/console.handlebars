@@ -26,8 +26,8 @@
         </div>
       </div>
       {{!-- Map --}}
-      <div class="col">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3232.2036942117415!2d-78.85102268381728!3d35.893026580145474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acefdd38386517%3A0x1b309841cec5154a!2sHilton+Garden+Inn+Raleigh-Durham%2FResearch+Triangle+Park!5e0!3m2!1sen!2sus!4v1553635828858" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <div class="col" id="map">
+        {{!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3232.2036942117415!2d-78.85102268381728!3d35.893026580145474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acefdd38386517%3A0x1b309841cec5154a!2sHilton+Garden+Inn+Raleigh-Durham%2FResearch+Triangle+Park!5e0!3m2!1sen!2sus!4v1553635828858" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> --}}
       </div>
     </div>
     {{!-- Matches --}}
@@ -109,114 +109,3 @@
 
 {{> modal/login-block}}
 
-{{!-- <main>
-  {{#if isloggedin}}
-  <div class="row">
-    <div class="col s4 m4 l3">
-      <div class="card">
-        <div class="card-image">
-          <img src="https://cdn.images.express.co.uk/img/dynamic/11/590x/KKSKS-717334.jpg">
-          <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
-        </div>
-        <div class="card-content">
-          <div class="card-title">
-            {{username}}
-          </div>
-          {{user_about}}
-          <a class="waves-effect waves-teal btn-flat btn-small">Edit Profile</a>
-            
-          <!-- TODO: When clicked, open modal to edit dog -->
-          <div class="row">
-            <a class="waves-effect waves-light btn">{{dog}}</a>
-          </div>
-
-          <!-- TODO: When clicked, open modal for new dog survey -->
-          <div class="row">
-            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-          </div>
-        </div>
-      </div>
-    </div> 
-
-    <!-- Map TODO: Map placement needs to be adjusted to fill space -->
-    <div class="row">
-      <div class="col container" id="map">
-        {{!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3232.2036942117415!2d-78.85102268381728!3d35.893026580145474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acefdd38386517%3A0x1b309841cec5154a!2sHilton+Garden+Inn+Raleigh-Durham%2FResearch+Triangle+Park!5e0!3m2!1sen!2sus!4v1553635828858" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> --}}
-      </div>
-    </div>
-  </div>
-
-  <!-- Matches TODO: Need to implement sidescrolling to view other users -->
-  <div class="row scrollmenu" id="playmates">
-    <div class="card col s3">
-      <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://via.placeholder.com/150">
-      </div>
-      <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{playmate}}<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">{{playmate_dog}}</a></p>
-      </div>
-      <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{playmate}}<i class="material-icons right">close</i></span>
-          <p>{{snippet}}</p>
-      </div>
-    </div>
-    <div class="card col s3">
-      <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="https://via.placeholder.com/150">
-      </div>
-      <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{playmate}}<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">{{playmate_dog}}</a></p>
-      </div>
-      <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{playmate}}<i class="material-icons right">close</i></span>
-          <p>{{snippet}}</p>
-      </div>
-    </div>
-    <div class="card col s3">
-      <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="https://via.placeholder.com/150">
-      </div>
-      <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{playmate}}<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">{{playmate_dog}}</a></p>
-      </div>
-      <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{playmate}}<i class="material-icons right">close</i></span>
-          <p>{{snippet}}</p>
-      </div>
-    </div>
-    <div class="card col s3">
-      <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="https://via.placeholder.com/150">
-      </div>
-      <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{playmate}}<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">{{playmate_dog}}</a></p>
-      </div>
-      <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{playmate}}<i class="material-icons right">close</i></span>
-          <p>{{snippet}}</p>
-      </div>
-    </div>
-  </div>
-  <!-- Search TODO: Commented out for now until we know that we do or do not want it -->
-  <!-- <div class="row">
-      <form class="col s6">
-          <div class="row">
-              <div class="input-field col s12">
-                  <i class="material-icons prefix">search</i>
-                  <input id="icon_prefix" type="text" class="validate">
-                  <label for="icon_prefix">Search</label>
-              </div>
-          </div>
-      </form>
-  </div> -->
-  {{else}}
-    <p>You need to log in to use this app.</p>
-  {{/if}}
-</main>      
-
-{{> nav/footer-block}}
-{{> modal/login-block}} --}}

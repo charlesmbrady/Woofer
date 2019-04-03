@@ -199,6 +199,7 @@ const postDog = (newDog) => {
 };
 
 // Map options
+// var latLng = google.maps.LatLng (35.913200, -79.055847);
 function initMap () {
   var location = {
     zoom: 13,
