@@ -86,7 +86,7 @@ module.exports = (db) => {
       };
       res.render('console', user);
     } else {
-      res.render('/');
+      res.redirect('/');
     }
   });
 
