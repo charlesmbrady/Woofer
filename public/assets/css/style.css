@@ -108,3 +108,9 @@ hr {
 .card-body {
   color: #233142;
 }
+
+#map {
+  height: 450px;
+  width: 100%;
+  margin-top: 7px;
+}
