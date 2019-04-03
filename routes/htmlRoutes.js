@@ -30,6 +30,26 @@ module.exports = (db) => {
     }
   });
 
+  // Load page to edit profile 
+  router.get('/editprofile', (req, res) => {
+    if (req.isAuthenticated()) {
+      db.User.findOne({
+        where: {
+          id: req.session.passport.user.id
+        }
+      }).then(() => {
+        const user = {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated()
+        };
+        // console.log(user);
+        res.render('editprofile', user);
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+
   // Load dashboard page
   router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
@@ -66,7 +86,7 @@ module.exports = (db) => {
       };
       res.render('console', user);
     } else {
-      res.render('dashboard');
+      res.render('/');
     }
   });
 
