@@ -7,10 +7,11 @@ module.exports = (db) => {
     isAdmin: true
   });
   db.User.create({
-    firstName: 'Jane',
-    lastName: 'Jobs',
-    email: 'j@j.co',
-    password: process.env.USER_PWD,
-    isAdmin: false
-  });
+   firstName: "Chuck",
+   lastName: "Brady",
+   email: "cb@email.com",
+   password: process.env.USER_PWD,
+   isAdmin: false,
+   userPic: "../public/assets/uploads/tormund.jpeg"
+ });
 };
