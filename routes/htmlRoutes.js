@@ -61,7 +61,8 @@ module.exports = (db) => {
     if (req.isAuthenticated()) {
       const user = {
         user: req.session.passport.user,
-        isloggedin: req.isAuthenticated()
+        isloggedin: req.isAuthenticated(),
+        userImg: req.session.passport.user.userPic.replace("public/","")
       };
       res.render('console', user);
     } else {
