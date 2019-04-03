@@ -56,6 +56,19 @@ module.exports = (db) => {
     }
   });
 
+  // Load console page
+  router.get('/console', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('console', user);
+    } else {
+      res.render('console');
+    }
+  });
+
   // Load example index page
   router.get('/example', function (req, res) {
     if (req.isAuthenticated()) {
