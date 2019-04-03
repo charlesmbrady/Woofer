@@ -14,7 +14,7 @@ $('#add-user').on('click', function (event) {
       url: '/api/register',
       data: newAccount
     }).then(() => {
-      window.location.href = '/';
+      window.location.href = '/console';
     });
   } else {
     console.log('**Please fill out entire form**');
