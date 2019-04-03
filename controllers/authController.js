@@ -14,7 +14,7 @@ module.exports = (passport, db) => {
           password: userArray[0].password,
           firstName: userArray[0].firstName,
           lastName: userArray[0].lastName,
-          userPic: userArray[0].path
+          userPic: req.file.path
         };
 
         return db.User.create(newUser).then(() => {
