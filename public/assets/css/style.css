@@ -28,11 +28,10 @@ body {
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 .jumbotron {
-  background: rgba(0,0,0,0);
+  background: #233142;
 }
 
 .modal {
@@ -41,7 +40,7 @@ body {
 
 .btn {
   color:white;
-  background:#cadde1;
+  background: #ff5959;
   border: 1px solid white;
 }
 
@@ -54,7 +53,7 @@ body {
 #update-err-msg,
 #login-err-msg,
 #create-err-msg {
-  color: red !important;
+  color: #ff5959 !important;
 }
 
 #go-home {
@@ -65,7 +64,7 @@ body {
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
-  background: rgba(86, 101, 115,.6);
+  background: #233142;
   height:100%;
   border-radius: .25rem;
   margin-bottom: 2%;
@@ -75,7 +74,7 @@ body {
 .narrowContainer {
   padding: 3%;
   margin-top: 3rem;
-  background: rgba(86, 101, 115,.6);
+  background: #233142;
   height:100%;
   border-radius: .25rem;
   margin-bottom: 2%;
@@ -107,7 +106,7 @@ hr {
 }
 
 .card-body {
-  color: #444;
+  color: #233142;
 }
 
 #map {
