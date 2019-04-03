@@ -5,11 +5,7 @@ body {
 }
 
 .sidescroll-container {
-  position: fixed;
-  bottom: 2rem;
-  margin-top: 3rem;
-  /* height: 180px; */
-  width: 100%;
+ 
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -71,11 +67,11 @@ body {
   width: 600px;
 }
 
-.narrowContainer {
+.userContainer {
   padding: 3%;
   margin-top: 3rem;
   background: #233142;
-  height:100%;
+  height: 100vh;
   border-radius: .25rem;
   margin-bottom: 2%;
   width: 100%;
@@ -113,4 +109,20 @@ hr {
   height: 450px;
   width: 100%;
   margin-top: 7px;
+  padding: 10px;
+}
+
+.main{
+  height: 100%;
+  margin-top:0;
+}
+
+
+#userCard {
+  width: 100%;
+  height: 100%;
+}
+
+#side-scroll {
+  background: lightblue;
 }
