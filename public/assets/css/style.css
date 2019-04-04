@@ -333,3 +333,8 @@ hr {
 .progress-bar li:first-child::after {
   content: none;
 }
+
+.matchImg{
+  background-size: contain;
+  background-repeat: no-repeat;
+}
