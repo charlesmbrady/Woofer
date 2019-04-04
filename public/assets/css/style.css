@@ -8,6 +8,7 @@ body {
 
 nav {
   background-color: #b5525c;
+  height: 8vh;
 }
 
 .jumbotron {
@@ -35,25 +36,13 @@ nav {
   background-color: #cc888e;
 }
 
-.sidescroll-container {
-  white-space: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  display: flex;
-  flex-direction: row;
+a {
+  color: #fff;
 }
 
-.sidescroll-item {
-  position: relative;
-  display: inline-block;
-  margin: 15px 5px;
-  border-top-right-radius: 4px;
-  width: 116px;
-  height: 100%;
-  vertical-align: bottom;
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: cover;
+a:hover {
+  color: #cc888e;
+  text-decoration: none;
 }
 
 .modal {
@@ -107,6 +96,35 @@ nav {
   width: 100%;
 }
 
+.card {
+  background-color: #105e62;
+}
+
+.card-body {
+  color: #105e62;
+}
+
+.sidescroll-container {
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidescroll-item {
+  position: relative;
+  display: inline-block;
+  margin: 15px 5px;
+  border-top-right-radius: 4px;
+  width: 116px;
+  height: 100%;
+  vertical-align: bottom;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 [data-useremail="true"] {
   color: white !important;
 }
@@ -129,14 +147,6 @@ hr {
 
 .list-group-item {
   line-height: 2.5;
-}
-
-.card {
-  background-color: #105e62;
-}
-
-.card-body {
-  color: #105e62;
 }
 
 #map {
@@ -172,4 +182,14 @@ hr {
 
 .list-group-item {
   color: #222;
+}
+
+footer {
+  position: fixed;
+  width: 100vw;
+  height: 12vh;
+  bottom: 0;
+  padding: 5px 50px;
+  background-color: #b5525c;
+  color: #fff;
 }
