@@ -8,22 +8,20 @@
       <div id="userBox">
         <div id="userBackgroundImage" style="background-image: url({{{userImg}}});"></div>
         <div id="edit">
-          <div><a class="edit link linkleft" href="/editprofile">Edit Profile</a><a class="edit link linkright" href="/profile">View Profile</a></div>
+          <div><a class="edit link linkleft" href="/editprofile">Edit Profile</a><a class="edit link linkright" href="/profile">View
+              Profile</a></div>
           <div class="addDog"><a class="link addlink" href="/survey">+Add Dog</a></div>
         </div>
 
         <div id="userDogs">
           {{#each dogs}}
-            {{> dogs/dog-block}}
+          {{> dogs/dog-block}}
           {{/each}}
 
         </div>
       </div>
       <div id="settingsBox">
-        <h3>Search</h3>
-        <button class="btn brn-primary" id="dog-search">Dogs</button>
-        <button class="btn brn-primary" id="owner-search">Owners</button>
-        <button class="btn brn-primary" id="location-search">Locations</button>
+
       </div>
 
     </div>
@@ -32,23 +30,26 @@
     <div class="col-md-9" id="right">
       <div id="map">map</div>
       <div id="match-display">
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
-
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
-
-        <div class="match">helloe</div>
-        <div class="match">helloe</div>
+        {{#each match}}
+          {{> matches/dogMatch-block}}
+        {{/each}}
         
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+
       </div>
 
 
