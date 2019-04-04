@@ -110,6 +110,9 @@ nav {
   position: relative;
   width: 60vw;
   height: 75vh;
+  margin: 5rem auto;
+  padding: 15px;
+  border-radius: 15px;
   background-color: #105e62;
   color: #fff;
 }
