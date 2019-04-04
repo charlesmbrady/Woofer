@@ -76,15 +76,32 @@ module.exports = (db) => {
     }
   });
 
+  // Load dashboard page
+  router.get('/survey', (req, res) => {
+    if (req.isAuthenticated()) {
+      res.render('survey');
+    } else {
+      res.render('dashboard');
+    }
+  });
+
   // Load console page
   router.get('/console', (req, res) => {
     if (req.isAuthenticated()) {
-      const user = {
-        user: req.session.passport.user,
-        isloggedin: req.isAuthenticated(),
-        userImg: req.session.passport.user.userPic.replace("public/","")
-      };
-      res.render('console', user);
+      db.Dog.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbDogs) {
+        console.log(dbDogs);
+        const user = {
+          user: req.session.passport.user,
+          isloggedin: req.isAuthenticated(),
+          userImg: req.session.passport.user.userPic.replace("public/", ""),
+          dogs: dbDogs
+        };
+        res.render('console', user);
+      });
+
+
+   
+
     } else {
       res.redirect('/');
     }

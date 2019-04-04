@@ -160,6 +160,6 @@ module.exports = (db) => {
     playStyle: 'wrestling',
     dogPic: 'public/assets/uploads/p_101348140-300x300.jpg',
     UserId: '5'
-  },
+  }
 ]);
 };
