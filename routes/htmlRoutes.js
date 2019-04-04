@@ -76,6 +76,15 @@ module.exports = (db) => {
     }
   });
 
+  // Load dashboard page
+  router.get('/survey', (req, res) => {
+    if (req.isAuthenticated()) {
+      res.render('survey');
+    } else {
+      res.render('dashboard');
+    }
+  });
+
   // Load console page
   router.get('/console', (req, res) => {
     if (req.isAuthenticated()) {

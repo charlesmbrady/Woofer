@@ -184,7 +184,7 @@ $('#add-dog').on('click', function (e) {
     situation: $('#reactive').val().join(),
     playStyle: $('#play-style').val().join(),
     dogPic: file,
-    UserId: 1
+    UserId: 6
   };
   console.log('SURVEY RESPONSE', surveyResponse);
   surveyArray.push(surveyResponse);
