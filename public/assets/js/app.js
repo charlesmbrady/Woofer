@@ -336,48 +336,59 @@ const postDog = (newDog) => {
 
 // ********************* New Map ********************
 var map;
-      var service;
-      var infowindow;
+var service;
+var infowindow;
+var contentString;
+var place;
 
-      function initialize() {
-        var location = new google.maps.LatLng(35.913200, -79.055847);
+function initialize() {
+  var location = new google.maps.LatLng(35.913200, -79.055847);
 
-        infowindow = new google.maps.InfoWindow();
+  infowindow = new google.maps.InfoWindow();
 
-        map = new google.maps.Map(
-            document.getElementById('map'), {center: location, zoom: 15});
+  map = new google.maps.Map(
+      document.getElementById('map'), {center: location, zoom: 15});
 
-        var request = {
-          location: location,
-          radius: 50000,
-          keyword: [ 'dog park' ]
-        };
-        infowindow = new google.maps.InfoWindow();
-        //   service = new google.maps.places.PlacesService(map);
-        
-        service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(request, callback);
+  var request = {
+    location: location,
+    radius: 50000,
+    keyword: [ 'dog park' ]
+  };
+    contentString = ('<div><strong>' + place.name + '</strong><br>' +
+    'Place ID: ' + place.place_id + '<br>' +
+    place.formatted_address + '</div>');
 
-        function callback (results, status) {
-          if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-              createMarker(results[i]);
-            }
+    infowindow = new google.maps.InfoWindow(contentString);
+    //  ({
+    //   content: contentString,
+    // }); 
+  //  ({ content:'<p style="color:black;">(</p>'});;
+  //   service = new google.maps.places.PlacesService(map);
+  
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
 
-            map.setCenter(results[0].geometry.location);
-          }
-        };
+  function callback (results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        createMarker(results[i]);
       }
 
-      function createMarker(place) {
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
+      map.setCenter(results[0].geometry.location);
+    }
+  };
+}
 
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-        });
-      }
+function createMarker(place) {
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    // infowindow.setContent(details.name + "<br />" + details.formatted_address +"<br />" + details.website + "<br />" + details.rating + "<br />" + details.formatted_phone_number);
+    infowindow.open(map, this);
+  });
+};
 
