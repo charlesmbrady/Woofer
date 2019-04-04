@@ -8,7 +8,8 @@
       <div id="userBox">
         <div id="userBackgroundImage" style="background-image: url({{{userImg}}});"></div>
         <div id="edit">
-          <a href="/editprofile">Edit Profile</a> <a href="profile">View Profile</a> <a href="/survey">+Add Dog</a>
+          <div><a class="edit link linkleft" href="/editprofile">Edit Profile</a><a class="edit link linkright" href="/profile">View Profile</a></div>
+          <div class="addDog"><a class="link addlink" href="/survey">+Add Dog</a></div>
         </div>
 
         <div id="userDogs">
@@ -20,9 +21,9 @@
       </div>
       <div id="settingsBox">
         <h3>Search</h3>
-        <button class="btn brn-primary">Dogs</button>
-        <button class="btn brn-primary">Owners</button>
-        <button class="btn brn-primary">Locations</button>
+        <button class="btn brn-primary" id="dog-search">Dogs</button>
+        <button class="btn brn-primary" id="owner-search">Owners</button>
+        <button class="btn brn-primary" id="location-search">Locations</button>
       </div>
 
     </div>

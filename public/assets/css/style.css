@@ -255,3 +255,30 @@ hr {
   margin-left: 25px;
 }
 
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+.link:hover{
+  color: white;
+  text-decoration: none;
+
+}
+
+.linkleft {
+  float: left;
+}
+.linkright{
+  float: right;
+}
+.addDog{
+  clear: both;
+}
+.edit {
+  color: lightblue;
+}
+
+#hiddenUserId {
+  display: none;
+}

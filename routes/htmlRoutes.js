@@ -79,7 +79,10 @@ module.exports = (db) => {
   // Load dashboard page
   router.get('/survey', (req, res) => {
     if (req.isAuthenticated()) {
-      res.render('survey');
+      const user = {
+        userInfo: req.session.passport.user
+      };
+      res.render('survey', user);
     } else {
       res.render('dashboard');
     }
