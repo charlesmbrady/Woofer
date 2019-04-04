@@ -1,11 +1,41 @@
 body {
-  color: white;
+  color: #fff;
+  background-color: #41aaa8;
   background-size: cover;
-  height:100%
+  height:100%;
+  line-height: 150%;
+}
+
+nav {
+  background-color: #b5525c;
+}
+
+.jumbotron {
+  background: #105e62;
+  color: #fff;
+}
+
+.btn {
+  background-color: #41aaa8;
+  color: #fff;
+  border: 1px solid #a2eae2;
+}
+
+.btn:hover {
+  background-color: #a2eae2;
+}
+
+#register-btn {
+  background-color: #b5525c;
+  color: #fff;
+  border: 1px solid #cc888e;
+}
+
+#register-btn:hover {
+  background-color: #cc888e;
 }
 
 .sidescroll-container {
- 
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -26,24 +56,18 @@ body {
   background-size: cover;
 }
 
-.jumbotron {
-  background: #233142;
-}
-
 .modal {
-  color: black;
-}
-
-.btn {
-  color:white;
-  background: #ff5959;
-  border: 1px solid white;
+  color: #000;
 }
 
 #user-form, .header-wrap, #create-form, .create-user-wrap {
   padding: 20px;
   border-radius: 15px;
   margin: 20px 0;
+}
+
+.header-wrap {
+  color: #fff;
 }
 
 #update-err-msg,
@@ -57,10 +81,16 @@ body {
  height: 65px;
 }
 
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  padding: 8rem 5rem;
+}
+
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
-  background: #233142;
+  background: #105e62;
   height:100%;
   border-radius: .25rem;
   margin-bottom: 2%;
@@ -70,7 +100,7 @@ body {
 .userContainer {
   padding: 3%;
   margin-top: 3rem;
-  background: #233142;
+  background: #105e62;
   height: 100vh;
   border-radius: .25rem;
   margin-bottom: 2%;
@@ -102,7 +132,7 @@ hr {
 }
 
 .card-body {
-  color: #233142;
+  color: #105e62;
 }
 
 #map {
@@ -117,12 +147,25 @@ hr {
   margin-top:0;
 }
 
-
 #userCard {
   width: 100%;
   height: 100%;
 }
 
 #side-scroll {
-  background: lightblue;
+  background: #41aaa8;
+}
+
+.profile-picture, 
+.dog-picture {
+  border-radius: 15px;
+  box-shadow: 1px 2px 2px #105e62;
+}
+
+.profile-picture {
+  margin-bottom: 1rem;
+}
+
+.dog-picture {
+  margin-top: 1rem;
 }
