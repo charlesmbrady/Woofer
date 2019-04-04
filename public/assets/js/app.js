@@ -190,7 +190,7 @@ $('#add-dog').on('click', function (e) {
     situation: $('#reactive').val().join(),
     playStyle: $('#play-style').val().join(),
     dogPic: file,
-    UserId: 6 // TODO: make this dynamic
+    UserId: 7
   };
   console.log('SURVEY RESPONSE', surveyResponse);
   surveyArray.push(surveyResponse);
@@ -215,6 +215,7 @@ const postDog = (newDog) => {
     cache: false,
     success: function (data) {
       console.log(data);
+      window.location.href = '/console';
     }
   });
 };
