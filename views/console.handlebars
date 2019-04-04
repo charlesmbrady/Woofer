@@ -2,111 +2,56 @@
 
 {{> nav/nav-block}}
 
-<div class="main">
-  <div class="row">
-    <!--col 1 with user info and filters -->
-    <div class="col-md-3 userContainer">
-      {{!-- User card --}}
-      <div class="card" style="width: 20rem;" id="userCard">
-        <img src={{{userImg}}} class="card-img-top" alt="user profile pic">
-        <div class="card-body">
-          <h5 class="card-title">{{user.firstName}}</h5>
-          <a href="/profile" class="card-link">edit profile</a>
+<div class="main container-fluid">
+  <div class="row row-body">
+    <div class="col-md-3" id="left">
+      <div id="userBox">
+        <div id="userBackgroundImage" style="background-image: url({{{userImg}}});"></div>
+        <div id="edit">
+          <a href="">Edit Profile</a> <a href="">View Profile</a> <a href="">+Add Dog</a>
         </div>
-        <ul class="list-group list-group-flush">
-          <!-- TODO: When clicked, open modal to edit dog -->
-          <li class="list-group-item">{{dog}}</li>
-        </ul>
-        <div class="card-body">
-          <!-- TODO: When clicked, open modal for new dog survey -->
-          <a href="#" class="card-link">add dog</a>
+
+        <div id="userDogs">
+          {{#each dogs}}
+            {{> dogs/dog-block}}
+          {{/each}}
+
         </div>
       </div>
-    </div>
-
-    {{!-- Map --}}
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-12" id="map">
-          {{!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3232.2036942117415!2d-78.85102268381728!3d35.893026580145474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acefdd38386517%3A0x1b309841cec5154a!2sHilton+Garden+Inn+Raleigh-Durham%2FResearch+Triangle+Park!5e0!3m2!1sen!2sus!4v1553635828858"
-            width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> --}}
-        </div>
+      <div id="settingsBox">
+        settings
       </div>
 
-      {{!-- Matches --}}
-      <div class="row" id="side-scroll">
-        <div class="sidescroll-container col-md-12">
-          <!-- Matches -->
-          <div class="col">
-            <div class="card sidescroll-item" style="width: 18rem;">
-              <img src="https://via.placeholder.com/150" class="card-img-top" alt="Picture of {{match}}">
-              <div class="card-body">
-                <h5 class="card-title">{{match}}</h5>
-                <p><a href="#">{{playmate_dog}}</a></p>
-                <p class="card-text">{{snippet}}</p>
-                <a href="#" class="btn btn-primary">Message</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card sidescroll-item" style="width: 18rem;">
-              <img src="https://via.placeholder.com/150" class="card-img-top" alt="Picture of {{match}}">
-              <div class="card-body">
-                <h5 class="card-title">{{match}}</h5>
-                <p><a href="#">{{playmate_dog}}</a></p>
-                <p class="card-text">{{snippet}}</p>
-                <a href="#" class="btn btn-primary">Message</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card sidescroll-item" style="width: 18rem;">
-              <img src="https://via.placeholder.com/150" class="card-img-top" alt="Picture of {{match}}">
-              <div class="card-body">
-                <h5 class="card-title">{{match}}</h5>
-                <p><a href="#">{{playmate_dog}}</a></p>
-                <p class="card-text">{{snippet}}</p>
-                <a href="#" class="btn btn-primary">Message</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card sidescroll-item" style="width: 18rem;">
-              <img src="https://via.placeholder.com/150" class="card-img-top" alt="Picture of {{match}}">
-              <div class="card-body">
-                <h5 class="card-title">{{match}}</h5>
-                <p><a href="#">{{playmate_dog}}</a></p>
-                <p class="card-text">{{snippet}}</p>
-                <a href="#" class="btn btn-primary">Message</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card sidescroll-item" style="width: 18rem;">
-              <img src="{{imgURL}}" class="card-img-top" alt="Picture of {{match}}">
-              <div class="card-body">
-                <h5 class="card-title">{{match}}</h5>
-                <p><a href="#">{{playmate_dog}}</a></p>
-                <p class="card-text">{{snippet}}</p>
-                <a href="#" class="btn btn-primary">Message</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card sidescroll-item" style="width: 18rem;">
-              <img src="{{imgURL}}" class="card-img-top" alt="Picture of {{match}}">
-              <div class="card-body">
-                <h5 class="card-title">{{match}}</h5>
-                <p><a href="#">{{playmate_dog}}</a></p>
-                <p class="card-text">{{snippet}}</p>
-                <a href="#" class="btn btn-primary">Message</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
+
+
+    <div class="col-md-9" id="right">
+      <div id="map">map</div>
+      <div id="match-display">
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+
+        <div class="match">helloe</div>
+        <div class="match">helloe</div>
+      </div>
+
+
+    </div>
+
+
 
   </div>
 </div>
+
 <!--end main container-->
