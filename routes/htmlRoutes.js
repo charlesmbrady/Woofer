@@ -98,7 +98,7 @@ module.exports = (db) => {
           where: {
             UserId: {
               [Op.ne]: req.session.passport.user.id
-            }
+            } //this is important
           }
         }).then(function(otherDogs){
           const user = {
