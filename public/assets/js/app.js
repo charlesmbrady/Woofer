@@ -202,7 +202,7 @@ $('#add-dog').on('click', function (e) {
     situation: $('#reactive').val().join(),
     playStyle: $('#play-style').val().join(),
     dogPic: file,
-    UserId: 7
+    UserId: $("#hiddenUserId").text()
   };
   console.log('SURVEY RESPONSE', surveyResponse);
   surveyArray.push(surveyResponse);
@@ -393,3 +393,8 @@ var map;
         });
       }
 
+//____________________________ search buttons/calls _________________//
+
+$("#dog-search").on("click", function(){
+  
+});
