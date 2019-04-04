@@ -2,8 +2,7 @@ body {
   color: #fff;
   background-color: #41aaa8;
   background-size: cover;
-  height:100%;
-  line-height: 150%;
+  height:100vh;
 }
 
 nav {
@@ -100,8 +99,8 @@ nav {
 .userContainer {
   padding: 3%;
   margin-top: 3rem;
-  background: #105e62;
-  height: 100vh;
+  background: #233142;
+  height: 100%;
   border-radius: .25rem;
   margin-bottom: 2%;
   width: 100%;
@@ -135,16 +134,12 @@ hr {
   color: #105e62;
 }
 
-#map {
-  height: 450px;
-  width: 100%;
-  margin-top: 7px;
-  padding: 10px;
-}
+
 
 .main{
   height: 100%;
-  margin-top:0;
+  margin: 50px auto;
+  background: black;
 }
 
 #userCard {
@@ -152,6 +147,92 @@ hr {
   height: 100%;
 }
 
+#left{
+  background: #233142;;
+  height: 100%;
+}
+
+#right {
+  background: white;
+  height: 100%;
+}
+
+#userBox{
+  margin-top: 10px;
+  height: 70%;
+  border: 1px solid black;
+}
+
+#settingsBox{
+  height: 25%;
+  border: 1px solid black;
+}
+
+.row-body {
+  height: 100%;
+}
+
+#userBackgroundImage{
+  height: 30%;
+  width: auto;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 1px solid white;
+  
+}
+#edit {
+  height: 10%;
+}
+
+#userDogs {
+  height: 60%;
+  width: 100%;
+  border: 1px solid white;
+  overflow: scroll;
+  bottom: 0;
+
+}
+#map {
+  height: 450px;
+  width: 100%;
+  margin-top: 7px;
+  padding: 10px;
+}
+#map {
+  height: 50%;
+  border: 1px solid black;
+}
+
+#match-display {
+  background: lightblue;
+  height: 40%;
+  margin-top: 10px;
+  bottom: 5%;
+  border: 1px solid black;
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.match {
+  height: 90%;
+  width: 200px;
+  display: inline-block;
+  border: 1px solid gray;
+  margin: 10px 15px 10px 15px;
+  padding: 10px;
+}
+
+.userDog{
+  height: 60px;
+  width: 100%;
+  padding: 5px;
+  color: white;
+}
+.userDog:hover{
+  color: blue;
+  background: white;
+  
 #side-scroll {
   background: #41aaa8;
 }
