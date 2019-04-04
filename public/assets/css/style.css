@@ -160,12 +160,11 @@ hr {
 #userBox{
   margin-top: 10px;
   height: 70%;
-  border: 1px solid black;
 }
 
 #settingsBox{
-  height: 25%;
-  border: 1px solid black;
+  height: 20%;
+  border-top: 3px solid lightblue;
 }
 
 .row-body {
@@ -178,8 +177,6 @@ hr {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  border: 1px solid white;
-  
 }
 #edit {
   height: 10%;
@@ -191,6 +188,7 @@ hr {
   border: 1px solid white;
   overflow: scroll;
   bottom: 0;
+  box-shadow: 2px 2px 2px black;
 
 }
 #map {
@@ -221,6 +219,7 @@ hr {
   border: 1px solid gray;
   margin: 10px 15px 10px 15px;
   padding: 10px;
+  box-shadow: 2px 4px 10px black;
 }
 
 .userDog{
