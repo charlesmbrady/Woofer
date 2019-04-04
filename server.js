@@ -16,7 +16,10 @@ const db = require('./models');
 
 //setup socket.io
 const io = require('socket.io')(server);
-
+io.on('connection', function(socket) {
+  console.log('a user connected');
+  socket.emit('message', 'hello');
+});
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

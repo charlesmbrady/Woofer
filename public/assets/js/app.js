@@ -395,6 +395,15 @@ var map;
 
 //____________________________ search buttons/calls _________________//
 
-$("#dog-search").on("click", function(){
+// $("#dog-search").on("click", function(){
   
+// });
+const socket = io();
+// connected to the server
+socket.on('connect', () => {
+  console.log(`Connected to server`);
+});
+
+socket.on('message', (data)=> {
+  console.log(data)
 });
