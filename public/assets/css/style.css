@@ -27,7 +27,7 @@ body {
 }
 
 .jumbotron {
-  background: #233142;
+  background: #343940;
 }
 
 .modal {
@@ -36,7 +36,6 @@ body {
 
 .btn {
   color:white;
-  background: #ff5959;
   border: 1px solid white;
 }
 
@@ -57,10 +56,17 @@ body {
  height: 65px;
 }
 
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  padding: 8rem 5rem;
+  background-color: #343940;
+}
+
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
-  background: #233142;
+  background: #343940;
   height:100%;
   border-radius: .25rem;
   margin-bottom: 2%;
@@ -70,7 +76,7 @@ body {
 .userContainer {
   padding: 3%;
   margin-top: 3rem;
-  background: #233142;
+  background: #343940;
   height: 100vh;
   border-radius: .25rem;
   margin-bottom: 2%;
@@ -102,7 +108,7 @@ hr {
 }
 
 .card-body {
-  color: #233142;
+  color: #343940;
 }
 
 #map {
