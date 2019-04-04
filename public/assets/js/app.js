@@ -16,6 +16,12 @@ $('#add-user').on('click', function (event) {
   console.log("USER ARRAY", userArray);
   console.log("New Account", newAccount);
   
+$('.profile-picture').on('click', function (event)  {
+  event.preventDefault();
+  let file = document.getElementById('updatePic').files[0];
+  let userInfo = new FormData();
+  userInfo.append('userPic', file);
+});
 
   if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
     $.ajax({
@@ -213,91 +219,164 @@ const postDog = (newDog) => {
   });
 };
 
-// Map options
-// var latLng = google.maps.LatLng (35.913200, -79.055847);
-function initMap () {
-  var location = {
-    zoom: 13,
-    center: { lat: 35.913200, lng: -79.055847 }
-  };
+// // Map options
+// // var latLng = google.maps.LatLng (35.913200, -79.055847);
 
-  // New map
-  var map = new
-  google.maps.Map(document.getElementById('map'), location);
+// // Global variables
+// var location;
+// var infowindow;
+// var OK;
+// var service;
+// var latLng;
+// var google;
+// var maps;
+// var markers = [];
 
-  // Locate nearest dog park
+// function initialize () {
+//   // $(document).ready(function() {
+//   //   $('head').append('<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize"><\/script>'); 
+//   // });
+//   var location = {
+//     zoom: 13,
+//     center: { lat: 35.913200, lng: -79.055847 }
+//   };
 
-  var request = {
-      location: { lat: 35.913200, lng: -79.055847 },
-      radius: 80467,
-      type: ['dog park']
-  };
+//   // New map
+//   map = new google.maps.Map(document.getElementById('map'), location);
 
-  var service = new google.maps.places.PlacesService(map);
+//   // Locate nearest dog park
 
-  service.nearbySearch(request, callback);
+//   var request = {
+//       location: { lat: 35.913200, lng: -79.055847 },
+//       // { lat: 35.913200, lng: -79.055847 },
+//       radius: 50000,
+//       keyword: [ 'dog park' ]
+//   };
 
-  function callback (results, status)   {
-      if (status === google.maps.places.PlacesServicesStatus.ok)    {
-          for (var i = 0; i < results.length; i++)  {
-              createMarker(results[i]);
-          };
+//   infowindow = new google.maps.InfoWindow();
+//   service = new google.maps.places.PlacesService(map);
+//   service.nearbySearch(request, callback);
+//   latLng = new google.maps.LatLng (35.913200, -79.055847);
+
+//   function callback (results, status)   {
+//       if (status === google.maps.places.PlacesServicesStatus.OK)    {
+//         console.log(OK);
+//           for (var i = 0; i < results.length; i++)  {
+//               createMarker(results[i]);
+//           };
+//           map.setCenter(results[0].geometry.location);
+//         };
+//       };
+// callback();
+
+//   function createMarker (place)  {
+//     var place = place.geometry.location;
+//     var marker = new google.maps.Marker({
+//         map: map,
+//         position: place.geometry.location
+//     });
+//     google.maps.event.addListener (marker, "click", function () {
+//       infowindow.setContent(place.name);
+//       infowindow.setContent(details.name + "<br />" + details.formatted_address +"<br />" + details.website + "<br />" + details.rating + "<br />" + details.formatted_phone_number);
+//       infowindow.open(map, this);
+//     });
+//     return marker;
+//   };
+// createMarker();
+
+// google.maps.event.addDomListener(window, 'load', initialize);
+//   // Listen for map click
+//   google.maps.event.addListener(map, 'click',
+//     function (event) {
+//       // Add marker
+//       addMarker({ coords: event.latlng });
+//     });
+
+//   // Add marker
+//   // // var marker = new google.maps.Marker({
+//   // //   position: { lat: 35.893357, lng: -78.848909 },
+//   // //   maps: map
+//   // // });
+
+//   // // var infoWindow = new google.maps.InfoWindow({
+//   // //   content: <h1>Morrisville, NC</h1>
+//   // // });
+
+//   // // marker.addListener('click', function () {
+//   // //   infoWindow.open(map, marker);
+//   // // });
+
+//   addMarker({
+//     coords: { lat: 35.893357, lng: -78.848909 },
+//     content: '<h1>Morrisville, NC</h1>'
+//   });
+  
+//   // Add marker function
+//   function addMarker (props) {
+//     var marker = new google.maps.Marker({
+//       position: props.coords,
+//       map: map,
+//       content: props.content
+//     });
+
+//       // Check content
+//     if (props.content) {
+//       var infoWindow = new google.maps.InfoWindow({
+//         content: props.content
+//       });
+
+//         infoWindow.open(map, marker);
+//       };
+//     };
+//   };
+
+  
+// // initMap();
+
+// ********************* New Map ********************
+var map;
+      var service;
+      var infowindow;
+
+      function initialize() {
+        var location = new google.maps.LatLng(35.913200, -79.055847);
+
+        infowindow = new google.maps.InfoWindow();
+
+        map = new google.maps.Map(
+            document.getElementById('map'), {center: location, zoom: 15});
+
+        var request = {
+          location: location,
+          radius: 50000,
+          keyword: [ 'dog park' ]
         };
-      };
+        infowindow = new google.maps.InfoWindow();
+        //   service = new google.maps.places.PlacesService(map);
+        
+        service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
 
-  function createMarker (place)  {
-    var placeLoc = place.geometry.location;
-    var marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location
-    });
-  };
+        function callback (results, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+              createMarker(results[i]);
+            }
 
-  // Listen for map click
-  google.maps.event.addListener(map, 'click',
-    function (event) {
-      // Add marker
-      addMarker({ coords: event.latlng });
-    });
+            map.setCenter(results[0].geometry.location);
+          }
+        };
+      }
 
-  // Add marker
-  // // var marker = new google.maps.Marker({
-  // //   position: { lat: 35.893357, lng: -78.848909 },
-  // //   maps: map
-  // // });
+      function createMarker(place) {
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
 
-  // // var infoWindow = new google.maps.InfoWindow({
-  // //   content: <h1>Morrisville, NC</h1>
-  // // });
-
-  // // marker.addListener('click', function () {
-  // //   infoWindow.open(map, marker);
-  // // });
-
-  addMarker({
-    coords: { lat: 35.893357, lng: -78.848909 },
-    content: '<h1>Morrisville, NC</h1>'
-  });
-
-  // Add marker function
-  function addMarker (props) {
-    var marker = new google.maps.Marker({
-      position: props.coords,
-      maps: map,
-      content: props.content
-    });
-
-      // Check content
-    if (props.content) {
-      var infoWindow = new google.maps.InfoWindow({
-        content: props.content
-      });
-
-        infoWindow.open(map, marker);
-      };
-    };
-  };
-
-initMap();
-
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
 
