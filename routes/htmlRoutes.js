@@ -10,7 +10,7 @@ module.exports = (db) => {
     }
   });
 
-  // Load profile page
+  // Load user public profile page
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {
       db.User.findOne({
@@ -24,6 +24,26 @@ module.exports = (db) => {
         };
         // console.log(user);
         res.render('profile', user);
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+
+  // Load dog public profile page
+  router.get('/dogprofile', (req, res) => {
+    if (req.isAuthenticated()) {
+      db.User.findOne({
+        where: {
+          id: req.session.passport.user.id
+        }
+      }).then(() => {
+        const user = {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated()
+        };
+        // console.log(user);
+        res.render('dogprofile', user);
       });
     } else {
       res.redirect('/');

@@ -5,23 +5,28 @@
 <div class="wrapper">
     <div class="row">
         <div class="col">
-            <div class="row">
-                {{!-- TODO: add handlebars in src: userInfo.??? --}}
-                <img class="profile-picture" src="https://via.placeholder.com/300">
-            </div>
-            <div class="row">
-                <button type="button" class="btn btn-outline-info"><</button>
-                <button type="button" class="btn btn-outline-info">></button>     
-                {{!-- TODO: add button to message user --}}
-            </div>
-            <div class="row">
-                <img class="dog-picture" src="https://thepetwiki.com/wp-content/uploads/300px-Finnish_Spitz.jpg">
+            <div class="card" style="width: 18rem;">
+                <img src="https://thepetwiki.com/wp-content/uploads/300px-Finnish_Spitz.jpg" class="dog-picture card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Dog's Name</h5>
+                    <button type="button" class="btn btn-outline-info"><</button>
+                    <button type="button" class="btn btn-outline-info">></button>     
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Breed</strong></li>
+                    <li class="list-group-item"><strong>Age</strong></li>
+                    <li class="list-group-item"><strong>Sex</strong></li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Back</a>
+                </div>
             </div>
         </div>
+    </div>
         <div class="col">
             <h4>
                 {{userInfo.username}}
-                Username
+                Dog's Name
             </h4>
             <p>
                 {{userInfo.profile}}
@@ -44,9 +49,6 @@
                 tortor. Etiam erat velit scelerisque in dictum non.
             </p>
         </div>
-    </div>
-    <div class="row">
-        <a href="console">Back to console</a>
     </div>
 </div>
 

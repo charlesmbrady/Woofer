@@ -131,6 +131,10 @@ hr {
   line-height: 2.5;
 }
 
+.card {
+  background-color: #105e62;
+}
+
 .card-body {
   color: #105e62;
 }
@@ -166,6 +170,6 @@ hr {
   margin-bottom: 1rem;
 }
 
-.dog-picture {
-  margin-top: 1rem;
+.list-group-item {
+  color: #222;
 }
