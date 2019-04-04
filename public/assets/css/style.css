@@ -232,6 +232,7 @@ hr {
 .userDog:hover{
   color: blue;
   background: white;
+}
   
 #side-scroll {
   background: #41aaa8;
@@ -250,3 +251,8 @@ hr {
 .dog-picture {
   margin-top: 1rem;
 }
+
+#editProfileBtn   {
+  margin-left: 25px;
+}
+

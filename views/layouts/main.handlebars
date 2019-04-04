@@ -18,10 +18,11 @@
 <body>
 	{{{ body }}}
   
-	<script
-		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCEVZeyl9kziBPiPZ7daIq5qVVMTDpKgoE">
-		</script>
 		<script type="text/javascript" src="/assets/js/app.js"></script>
+		<script async defer 
+			src="https://maps.googleapis.com/maps/api/js?&libraries=places,geometry&key=AIzaSyCEVZeyl9kziBPiPZ7daIq5qVVMTDpKgoE&callback=initialize">
+			</script>
+		{{!-- <script type="text/javascript" src="/assets/js/app.js"></script> --}}
 </body>
 
 </html>
