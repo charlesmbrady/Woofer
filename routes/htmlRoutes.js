@@ -110,9 +110,9 @@ module.exports = (db) => {
           otherDogs.forEach(function(dog){
             dog.dogPic = dog.dogPic.replace("public/","");
           });
-          console.log(dbDogs);
+          console.log("DB DOGS", dbDogs);
           console.log("___________");
-          console.log(otherDogs);
+          console.log("OTHER DOGS", otherDogs);
         
           const user = {
             user: req.session.passport.user,

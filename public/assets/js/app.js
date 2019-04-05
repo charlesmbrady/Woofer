@@ -136,8 +136,22 @@ $('#register').on('click', function (event) {
 });
 
 $('#login-modal').on('click', function (event) {
+  console.log('login-modal button clicked');
   event.preventDefault();
   $('#user-info').modal('show');
+});
+
+$('.interaction-modal').on('click', function (event) {
+  console.log("INTERACTION MODAL CLicked");
+  event.preventDefault();
+  const dogId = $(this).attr('data-id')
+  
+  console.log(dogId);
+  $.ajax('/api/dog/'+ dogId,(data) => {
+    console.log("DATA", data);
+  });
+    
+  // $('#interaction-invite').modal('show');
 });
 
 $('#go-home').on('click', function (event) {
@@ -216,6 +230,15 @@ $('#add-dog').on('click', function (e) {
   // console.log(surveyResonse);
 });
 
+$('#interaction-create').on('click', function (e) {
+  const interactionInfo = {
+    comment: $('#comment').val().trim(),
+    location: $('#location').val().trim(),
+    when: $('#date').val(),
+
+
+  }
+});
 const postDog = (newDog) => {
   $.ajax({
     type: 'POST',
