@@ -1,9 +1,10 @@
 $('#add-user').on('click', function (event) {
   event.preventDefault();
   
-  // TODO: Need to implement auto-login
+  // Need to implement auto-login
 
-  // TODO: Redirect new user to console upon registration
+  // Redirect new user to console upon registration
+  location.href = '/console';
 
   let file = document.getElementById('userPic').files[0];
   console.log("FILE", file);
@@ -135,8 +136,22 @@ $('#register').on('click', function (event) {
 });
 
 $('#login-modal').on('click', function (event) {
+  console.log('login-modal button clicked');
   event.preventDefault();
   $('#user-info').modal('show');
+});
+
+$('.interaction-modal').on('click', function (event) {
+  console.log("INTERACTION MODAL CLicked");
+  event.preventDefault();
+  const dogId = $(this).attr('data-id')
+  
+  console.log(dogId);
+  $.ajax('/api/dog/'+ dogId,(data) => {
+    console.log("DATA", data);
+  });
+    
+  // $('#interaction-invite').modal('show');
 });
 
 $('#go-home').on('click', function (event) {
@@ -215,6 +230,15 @@ $('#add-dog').on('click', function (e) {
   // console.log(surveyResonse);
 });
 
+$('#interaction-create').on('click', function (e) {
+  const interactionInfo = {
+    comment: $('#comment').val().trim(),
+    location: $('#location').val().trim(),
+    when: $('#date').val(),
+
+
+  }
+});
 const postDog = (newDog) => {
   $.ajax({
     type: 'POST',
@@ -421,10 +445,20 @@ function createMarker(place) {
 
 //____________________________ search buttons/calls _________________//
 
-$("#dog-search").on("click", function(){
+// $("#dog-search").on("click", function(){
   
+// });
+const socket = io();
+// connected to the server
+socket.on('connect', () => {
+  console.log(`Connected to server`);
+  console.log(socket.id)
 });
 
+socket.on('message', (data)=> {
+  console.log(data)
+  
+});
 $("#owner-search").on("click", function(){
   
 });
@@ -432,3 +466,37 @@ $("#owner-search").on("click", function(){
 $("#location-search").on("click", function(){
   
 });
+
+
+function displayMatches(matchType){
+  $("#match-display").text("");
+  if(matchType === 'dogs'){
+    displayDogs(matchType);
+  }
+  if(matchType === 'owners'){
+    displayOwners(matchType);
+  }
+  if(matchType === 'locations'){
+    displayLocations(matchType);
+  }
+}
+// TODO: add IDs as data attributes to these when rendered
+function displayDogs(dogs) {
+  dogs.forEach(dog, function(){
+    let match = $("<div>").addClass("match");
+    const dogName = "Dog Name";
+    const dogPicture = "Dog picture";
+    // const message;
+
+  })
+  
+
+  
+}
+function displayOwners(owners) {
+
+}
+
+function displayLocations(locations) {
+
+}
