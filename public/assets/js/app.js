@@ -147,12 +147,27 @@ $('.interaction-modal').on('click', function (event) {
   const dogId = $(this).attr('data-id')
   
   console.log(dogId);
-  $.get('/api/dog/'+ dogId,function(data, err) {
-    if (err) throw err
-    console.log("DATA", data);
-  });
-    
-  // $('#interaction-invite').modal('show');
+  // $.ajax('/api/dog/'+ dogId,(data) => {
+  //   console.log("DATA", data);
+  // });
+  $.ajax({
+    url: `api/dog/${dogId}`,
+    type: 'GET'
+  }).then(response => {
+    console.log(response);
+    const dogImage = $('<img>').attr('src', response.dogPic.replace('public/', ''));
+    const userImage = $('<img>').attr('src', response.User.userPic.replace('public/', ''));
+    dogImage.addClass('intDogPic');
+    dogImage.attr("data-id", response.id);
+    userImage.addClass('intUserPic');
+    userImage.attr("data-id", response.UserId);
+    $("#ownerPic").append(dogImage);
+    $("#ownerPic").append(userImage);
+    $('#interaction-invite').modal('show');
+
+  });  
+
+  
 });
 
 $('#go-home').on('click', function (event) {
@@ -488,44 +503,3 @@ socket.on('message', (data)=> {
   console.log(data)
   
 });
-$("#owner-search").on("click", function(){
-  
-});
-
-$("#location-search").on("click", function(){
-  
-});
-
-
-function displayMatches(matchType){
-  $("#match-display").text("");
-  if(matchType === 'dogs'){
-    displayDogs(matchType);
-  }
-  if(matchType === 'owners'){
-    displayOwners(matchType);
-  }
-  if(matchType === 'locations'){
-    displayLocations(matchType);
-  }
-}
-// TODO: add IDs as data attributes to these when rendered
-function displayDogs(dogs) {
-  dogs.forEach(dog, function(){
-    let match = $("<div>").addClass("match");
-    const dogName = "Dog Name";
-    const dogPicture = "Dog picture";
-    // const message;
-
-  })
-  
-
-  
-}
-function displayOwners(owners) {
-
-}
-
-function displayLocations(locations) {
-
-}

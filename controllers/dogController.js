@@ -7,10 +7,11 @@ module.exports = function (db) {
       db.Dog.findOne({
         where: {
           id: req.params.id
-        }
+        }, 
+        include: [db.User]
       }).then(result => {
         console.log("RESULT FROM DB DOGCON", result);
-        res.json({res: result});
+        res.json(result);
       }).catch(err => {
         res.json(err);
       });
