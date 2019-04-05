@@ -53,6 +53,12 @@ $('.profile-picture').on('click', function (event)  {
   }
 });
 
+// TODO: On click, go to dog's profile
+$('.dog-picture').on('click', function (event)  {
+  event.preventDefault();
+  window.location = '/dogprofile';
+});
+
 $('#update-user').on('click', function (event) {
   event.preventDefault();
 
