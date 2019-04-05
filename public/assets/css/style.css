@@ -140,6 +140,7 @@ nav {
   margin: 0;
   line-height: 200%;
   overflow-y: scroll;
+  overflow-x:hidden;
 }
 
 .sectionName {
