@@ -25,22 +25,23 @@ module.exports = function (db) {
     // add a new dog
     add: (req, res) => {
       console.log('REQ.FILE', req.file);
-      const dogArray = JSON.parse(req.body.dogArray);
-      console.log('DOG ARRAY', dogArray);
+      console.log(req.body);
+      // const dogArray = JSON.parse(req.body.dogArray);
+      console.log('DOG ARRAY');
       db.Dog.create({
-        dogName: dogArray[0].dogName,
-        age: dogArray[0].age,
-        weight: dogArray[0].weight,
-        breed: dogArray[0].breed,
-        gender: dogArray[0].gender,
-        isFixed: dogArray[0].isFixed,
-        isUptoDate: dogArray[0].isUptoDate,
-        getAlong: dogArray[0].getAlong,
-        possessive: dogArray[0].possessive,
-        situation: dogArray[0].situation,
-        playStyle: dogArray[0].playStyle,
+        dogName: req.body["name"],
+        breed: req.body["breed"],
+        age: req.body["age"],
+        weight: req.body["weight"],
+        gender: req.body["type-dog"],
+        isUptoDate: req.body["vaccinated"],
+        getAlong: req.body["dog-issue"],
+        possessive: req.body["possessive"],
+        situation: req.body["reactive"],
+        playStyle: req.body["play-style"],
         dogPic: req.file.path,
-        UserId: dogArray[0].UserId
+        // TODO: Not sure where userId is coming from - is it just user-id?
+        UserId: req.body[""]
       }).then(result => {
         res.json(result);
       }).catch(err => {

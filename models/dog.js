@@ -16,10 +16,6 @@ module.exports = function (sequelize, DataTypes) {
     gender: {
       type: DataTypes.STRING
     },
-    isFixed: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
     isUptoDate: {
       type: DataTypes.BOOLEAN,
       allowNull: false
