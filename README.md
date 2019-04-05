@@ -18,6 +18,8 @@ We are currently working on our MVP, but we have several ideas to improve the ap
 
 ## Dependencies
 
+## Testing
+
 ## Requirements:
 
 * Add `.env` file with the following content:
