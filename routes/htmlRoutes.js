@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 module.exports = (db) => {
   // Load register page
@@ -92,14 +94,35 @@ module.exports = (db) => {
   router.get('/console', (req, res) => {
     if (req.isAuthenticated()) {
       db.Dog.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbDogs) {
-        console.log(dbDogs);
-        const user = {
-          user: req.session.passport.user,
-          isloggedin: req.isAuthenticated(),
-          userImg: req.session.passport.user.userPic.replace("public/", ""),
-          dogs: dbDogs
-        };
-        res.render('console', user);
+        db.Dog.findAll({
+          where: {
+            UserId: {
+              [Op.ne]: req.session.passport.user.id
+            }
+          }
+        }).then(function(otherDogs){
+          
+
+          dbDogs.forEach(function(dog){
+            dog.dogPic = dog.dogPic.replace("public/","");
+          });
+
+          otherDogs.forEach(function(dog){
+            dog.dogPic = dog.dogPic.replace("public/","");
+          });
+          console.log(dbDogs);
+          console.log("___________");
+          console.log(otherDogs);
+        
+          const user = {
+            user: req.session.passport.user,
+            isloggedin: req.isAuthenticated(),
+            userImg: req.session.passport.user.userPic.replace("public/", ""),
+            dogs: dbDogs,
+            matches: otherDogs
+          };
+          res.render('console', user);
+        });
       });
 
 
