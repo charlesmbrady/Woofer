@@ -15,6 +15,20 @@ module.exports = (db) => {
     userPic: 'public/assets/uploads/tormund.jpeg',
     isAdmin: false
   });
+  db.Interaction.create({
+    comment: "A comment about the interaction",
+    location: "dog park",
+    status: 'proposed',
+    invitedDog: 2,
+    invitedOwner: 7
+  });
+  db.Interaction.create({
+    comment: "A comment about the interaction",
+    location: "dog park",
+    status: 'proposed',
+    invitedDog: 2,
+    invitedOwner: 7
+  });
   db.User.bulkCreate([
     {
     firstName: 'Jane',
