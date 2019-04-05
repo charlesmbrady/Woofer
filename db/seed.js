@@ -15,6 +15,20 @@ module.exports = (db) => {
     userPic: 'public/assets/uploads/tormund.jpeg',
     isAdmin: false
   });
+  db.Interaction.create({
+    comment: "A comment about the interaction",
+    location: "dog park",
+    status: 'proposed',
+    invitedDog: 2,
+    invitedOwner: 7
+  });
+  db.Interaction.create({
+    comment: "A comment about the interaction",
+    location: "dog park",
+    status: 'proposed',
+    invitedDog: 2,
+    invitedOwner: 7
+  });
   db.User.bulkCreate([
     {
     firstName: 'Jane',
@@ -162,4 +176,12 @@ module.exports = (db) => {
     UserId: '5'
   }
 ]);
+
+db.Location.create({
+  whatKind: 'dog park',
+  address: '1090 Dog Ln',
+  open: '10:00 PM',
+  description: 'Place for doggos to play',
+  name: 'Oakwood'
+});
 };

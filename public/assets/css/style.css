@@ -200,12 +200,13 @@ hr {
 
 #userBox{
   margin-top: 10px;
-  height: 70%;
+  height: 100%;
 }
 
 #settingsBox{
   height: 20%;
-  border-top: 3px solid lightblue;
+  margin-top: 0;
+  border: 3px solid lightblue;
 }
 
 .row-body {
@@ -213,24 +214,21 @@ hr {
 }
 
 #userBackgroundImage{
-  height: 30%;
+  height: 25%;
   width: auto;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 #edit {
-  height: 10%;
+  height: 7%;
 }
 
 #userDogs {
-  height: 60%;
+  height: 30%;
   width: 100%;
   border: 1px solid white;
   overflow: scroll;
-  bottom: 0;
-  box-shadow: 2px 2px 2px black;
-
 }
 #map {
   height: 450px;
@@ -414,11 +412,30 @@ hr {
 .invite-icon {
   height: 50px;
   margin-top: 10px;
-  width: auto;
+  width: 50px;
   float: left;
+  background-image: url("http://chittagongit.com//images/invite-icon/invite-icon-20.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .invite-icon:hover {
   zoom: 1.1;
   cursor: pointer;
   transition-duration: 200ms;
+}
+
+.addDog * {
+  display: inline-block;
+}
+
+#addDogBtn {
+  height: 20px;
+  width: auto;
+  margin-left: 15px;
+}
+.yourInteractions {
+  color: white;
+  height: 5%;
+  width: 100%;
+  padding: 10px;
 }
