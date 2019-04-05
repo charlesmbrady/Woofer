@@ -15,11 +15,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     date: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: true
     },
     time: {
       type: DataTypes.TIME,
-      allowNull: false
+      allowNull: true
     },
     invitedDog: {
       type: DataTypes.INTEGER
