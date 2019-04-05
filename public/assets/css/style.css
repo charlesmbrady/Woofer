@@ -398,8 +398,11 @@ hr {
 
 #addDogBtn {
   height: 20px;
-  width: auto;
+  width: 20px;
   margin-left: 15px;
+  background-image: url("https://www.freeiconspng.com/uploads/blue-plus-icon-6.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .yourInteractions {

@@ -2,7 +2,7 @@ module.exports = function (db) {
   return {
     addNew: (req, res) => {
       db.Location.create({
-        whatKind: req.body.kind,
+        whatKind: req.body.whatKind,
         address: req.body.address,
         open: req.body.open,
         close: req.body.close,

@@ -135,24 +135,22 @@ $('#register').on('click', function (event) {
   window.location.href = '/register';
 });
 
+//open login modal
 $('#login-modal').on('click', function (event) {
   console.log('login-modal button clicked');
   event.preventDefault();
   $('#user-info').modal('show');
 });
 
+//open interaction modal
 $('.interaction-modal').on('click', function (event) {
   console.log("INTERACTION MODAL CLicked");
   event.preventDefault();
   $("dogPic").empty();
   $("ownerPic").empty();
   const dogId = $(this).attr('data-id');
-
-  
   console.log(dogId);
-  // $.ajax('/api/dog/'+ dogId,(data) => {
-  //   console.log("DATA", data);
-  // });
+
   $.ajax({
     url: `api/dog/${dogId}`,
     type: 'GET'
@@ -170,8 +168,6 @@ $('.interaction-modal').on('click', function (event) {
     $("#ownerPic").append(userImage);
     $('#interaction-invite').modal('show');
   });  
-
-  
 });
 
 $('#go-home').on('click', function (event) {
@@ -197,68 +193,6 @@ $('#login').on('click', function (event) {
     }
   });
 });
-
-
-// $('#add-dog').on('click', function (e) {
-//   e.preventDefault();
-//   const typeDog = $('input[name=type-dog]:checked').val();
-//   let sex;
-//   let isNeutered;
-//   if (typeDog === 'male' || typeDog === 'female') {
-//     isNeutered = false;
-//   } else {
-//     isNeutered = true;
-//   }
-//   if (typeDog === 'male' || typeDog === 'neutered male') {
-//     sex = 'male';
-//   } else {
-//     sex = 'female';
-//   }
-//   let issueType = $('#issue-type').val().join();
-
-//   console.log('ISSUE TYPE', issueType);
-//   let file = document.getElementById('dog-pic').files[0];
-//   console.log('FILE', file);
-  
-//   // eslint-disable-next-line no-undef
-//   let dogInfo = new FormData();
-//   dogInfo.append('dogPic', file);
-//   let surveyArray = [];
-//   $.each($('input[name=\'play-style\']:checked'), function() {
-//     console.log($(this).val());
-//   });
-//   const surveyResponse = {
-//     dogName: $('#name').val(),
-//     age: $('#age').val(),
-//     weight: $('#weight').val(),
-//     breed: $('#breed').val(),
-//     gender: sex,
-//     isFixed: isNeutered,
-//     isUptoDate: $('input[name=vaccinated]:checked').val(),
-//     getAlong: issueType,
-//     possessive: $.each($('input[name=\'possessive\']:checked'), function() {
-//       console.log($(this).val());
-//     }),
-//     situation: $.each($('input[name=\'reactive\']:checked'), function() {
-//       console.log($(this).val());
-//     }),
-//     playStyle: $.each($('input[name=\'play-style\']:checked'), function() {
-//       console.log($(this).val());
-//     }),
-//     dogPic: file,
-//     UserId: $("#hiddenUserId").text()
-//   };
-//   console.log('SURVEY RESPONSE', surveyResponse);
-//   surveyArray.push(surveyResponse);
-//   dogInfo.append('dogArray', JSON.stringify(surveyArray));
-//   console.log(dogInfo);
-//   $('input:radio').attr('checked', false);
-//   $('option').attr('checked', false);
-//   $('input:text').val('');
-//   postDog(dogInfo);
-
-//   // console.log(surveyResonse);
-// });
 
 $('#interaction-create').on('click', function (e) {
   const interactionInfo = {
@@ -299,121 +233,7 @@ const postInteraction = (newInt) => {
     console.log(result);
   });
 }
-// // Map options
-// // var latLng = google.maps.LatLng (35.913200, -79.055847);
 
-// // Global variables
-// var location;
-// var infowindow;
-// var OK;
-// var service;
-// var latLng;
-// var google;
-// var maps;
-// var markers = [];
-
-// function initialize () {
-//   // $(document).ready(function() {
-//   //   $('head').append('<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize"><\/script>'); 
-//   // });
-//   var location = {
-//     zoom: 13,
-//     center: { lat: 35.913200, lng: -79.055847 }
-//   };
-
-//   // New map
-//   map = new google.maps.Map(document.getElementById('map'), location);
-
-//   // Locate nearest dog park
-
-//   var request = {
-//       location: { lat: 35.913200, lng: -79.055847 },
-//       // { lat: 35.913200, lng: -79.055847 },
-//       radius: 50000,
-//       keyword: [ 'dog park' ]
-//   };
-
-//   infowindow = new google.maps.InfoWindow();
-//   service = new google.maps.places.PlacesService(map);
-//   service.nearbySearch(request, callback);
-//   latLng = new google.maps.LatLng (35.913200, -79.055847);
-
-//   function callback (results, status)   {
-//       if (status === google.maps.places.PlacesServicesStatus.OK)    {
-//         console.log(OK);
-//           for (var i = 0; i < results.length; i++)  {
-//               createMarker(results[i]);
-//           };
-//           map.setCenter(results[0].geometry.location);
-//         };
-//       };
-// callback();
-
-//   function createMarker (place)  {
-//     var place = place.geometry.location;
-//     var marker = new google.maps.Marker({
-//         map: map,
-//         position: place.geometry.location
-//     });
-//     google.maps.event.addListener (marker, "click", function () {
-//       infowindow.setContent(place.name);
-//       infowindow.setContent(details.name + "<br />" + details.formatted_address +"<br />" + details.website + "<br />" + details.rating + "<br />" + details.formatted_phone_number);
-//       infowindow.open(map, this);
-//     });
-//     return marker;
-//   };
-// createMarker();
-
-// google.maps.event.addDomListener(window, 'load', initialize);
-//   // Listen for map click
-//   google.maps.event.addListener(map, 'click',
-//     function (event) {
-//       // Add marker
-//       addMarker({ coords: event.latlng });
-//     });
-
-//   // Add marker
-//   // // var marker = new google.maps.Marker({
-//   // //   position: { lat: 35.893357, lng: -78.848909 },
-//   // //   maps: map
-//   // // });
-
-//   // // var infoWindow = new google.maps.InfoWindow({
-//   // //   content: <h1>Morrisville, NC</h1>
-//   // // });
-
-//   // // marker.addListener('click', function () {
-//   // //   infoWindow.open(map, marker);
-//   // // });
-
-//   addMarker({
-//     coords: { lat: 35.893357, lng: -78.848909 },
-//     content: '<h1>Morrisville, NC</h1>'
-//   });
-  
-//   // Add marker function
-//   function addMarker (props) {
-//     var marker = new google.maps.Marker({
-//       position: props.coords,
-//       map: map,
-//       content: props.content
-//     });
-
-//       // Check content
-//     if (props.content) {
-//       var infoWindow = new google.maps.InfoWindow({
-//         content: props.content
-//       });
-
-//         infoWindow.open(map, marker);
-//       };
-//     };
-//   };
-
-  
-// // initMap();
-
-// ********************* New Map ********************
 var map;
 var service;
 var infowindow;
@@ -451,17 +271,38 @@ function initialize() {
   
   service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
+  
+  let locationArray = [];
 
   function callback (results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
         createMarker(results[i]);
         console.log(results[i]);
+        const newPlace = {
+          name: results[i].name,
+          whatKind: results[i].types[0],
+          address: results[i].vicinity
+        };
+        console.log("NEW PLACE", newPlace)
+        locationArray.push(newPlace);
+  
       };
+      console.log("Location Array", locationArray);
       map.setCenter(results[0].geometry.location);
+      addLocations(locationArray);
     };
   };
 };
+//add location array to db
+const addLocations = (locations) => {
+  locations.forEach(location => {
+    $.post('api/location', location, (result) => {
+      console.log(result);
+    })
+  });
+};
+
 
 function createMarker(place) {
   var marker = new google.maps.Marker({
