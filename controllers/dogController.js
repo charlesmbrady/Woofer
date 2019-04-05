@@ -29,12 +29,6 @@ module.exports = function (db) {
     // add a new dog
     add: (req, res) => {
       console.log('REQ.FILE', req.file);
-      console.log(req.body);
-      console.log(req.session)
-      console.log(req.session.passport)
-      console.log(req.session.passport.user)
-      // const dogArray = JSON.parse(req.body.dogArray);
-      // console.log('DOG ARRAY');
       db.Dog.create({
         dogName: req.body["name"],
         breed: req.body["breed"],
@@ -49,8 +43,6 @@ module.exports = function (db) {
         dogPic: req.file.path.replace("\\", "/"),
         UserId: req.session.passport.user.id
       }).then(result => {
-        // res.json(result);
-        // req.session.save(() => res.redirect("/console"));
         res.redirect("/console");
       }).catch(err => {
         res.json(err);
