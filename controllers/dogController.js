@@ -2,11 +2,15 @@ module.exports = function (db) {
   return {
     // get dog info for single dog
     getDogInfo: (req, res) => {
+      console.log("REQ Get Dog", req.params.id);
+      // console.log("REQ", req);
       db.Dog.findOne({
         where: {
-          id: req.body.id
-        }
+          id: req.params.id
+        }, 
+        include: [db.User]
       }).then(result => {
+        console.log("RESULT FROM DB DOGCON", result);
         res.json(result);
       }).catch(err => {
         res.json(err);

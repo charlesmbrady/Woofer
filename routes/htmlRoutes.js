@@ -103,9 +103,9 @@ module.exports = (db) => {
         }).then(function(otherDogs){
           db.Interaction.findAll({
             where: {
-              UserId: req.session.passport.user.id
+              invitedOwner: req.session.passport.user.id
             }
-          }).then(function() {
+          }).then(function(dbInteractions) {
             dbDogs.forEach(function(dog){
               dog.dogPic = dog.dogPic.replace("public/","");
             });
@@ -115,11 +115,13 @@ module.exports = (db) => {
             });
           
             const user = {
+              consoleId: req.session.passport.user.id,
               user: req.session.passport.user,
               isloggedin: req.isAuthenticated(),
               userImg: req.session.passport.user.userPic.replace("public/", ""),
               dogs: dbDogs,
-              matches: otherDogs
+              matches: otherDogs,
+              interactions: dbInteractions
             };
             res.render('console', user);
 

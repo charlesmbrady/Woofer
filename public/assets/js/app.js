@@ -1,9 +1,10 @@
 $('#add-user').on('click', function (event) {
   event.preventDefault();
   
-  // TODO: Need to implement auto-login
+  // Need to implement auto-login
 
-  // TODO: Redirect new user to console upon registration
+  // Redirect new user to console upon registration
+  location.href = '/console';
 
   let file = document.getElementById('userPic').files[0];
   console.log("FILE", file);
@@ -135,8 +136,38 @@ $('#register').on('click', function (event) {
 });
 
 $('#login-modal').on('click', function (event) {
+  console.log('login-modal button clicked');
   event.preventDefault();
   $('#user-info').modal('show');
+});
+
+$('.interaction-modal').on('click', function (event) {
+  console.log("INTERACTION MODAL CLicked");
+  event.preventDefault();
+  const dogId = $(this).attr('data-id')
+  
+  console.log(dogId);
+  // $.ajax('/api/dog/'+ dogId,(data) => {
+  //   console.log("DATA", data);
+  // });
+  $.ajax({
+    url: `api/dog/${dogId}`,
+    type: 'GET'
+  }).then(response => {
+    console.log(response);
+    const dogImage = $('<img>').attr('src', response.dogPic.replace('public/', ''));
+    const userImage = $('<img>').attr('src', response.User.userPic.replace('public/', ''));
+    dogImage.addClass('intDogPic');
+    dogImage.attr("data-id", response.id);
+    userImage.addClass('intUserPic');
+    userImage.attr("data-id", response.UserId);
+    $("#ownerPic").append(dogImage);
+    $("#ownerPic").append(userImage);
+    $('#interaction-invite').modal('show');
+
+  });  
+
+  
 });
 
 $('#go-home').on('click', function (event) {
@@ -225,6 +256,15 @@ $('#login').on('click', function (event) {
 //   // console.log(surveyResonse);
 // });
 
+$('#interaction-create').on('click', function (e) {
+  const interactionInfo = {
+    comment: $('#comment').val().trim(),
+    location: $('#location').val().trim(),
+    when: $('#date').val(),
+
+
+  }
+});
 const postDog = (newDog) => {
   $.ajax({
     type: 'POST',
@@ -427,18 +467,49 @@ function createMarker(place) {
     // infowindow.setContent(details.name + "<br />" + details.formatted_address +"<br />" + details.website + "<br />" + details.rating + "<br />" + details.formatted_phone_number);
     infowindow.open(map, this);
   });
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      infoWindow = new google.maps.InfoWindow;
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('You are here');
+      infoWindow.open(map);
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  };
+
+  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+  };
 };
 
 //____________________________ search buttons/calls _________________//
 
-$("#dog-search").on("click", function(){
+// $("#dog-search").on("click", function(){
   
+// });
+const socket = io();
+// connected to the server
+socket.on('connect', () => {
+  console.log(`Connected to server`);
+  console.log(socket.id)
 });
 
-$("#owner-search").on("click", function(){
-  
-});
-
-$("#location-search").on("click", function(){
+socket.on('message', (data)=> {
+  console.log(data)
   
 });

@@ -48,11 +48,21 @@ module.exports = (passport, db) => {
   router.delete('/examples/:id', ensureAuthenticated, AppController.deleteExample);
 
   // Dog
-  //  router.post('/dog', DogController.add);
   router.post('/dog', ensureAuthenticated, upload.single('dogPic'), DogController.add);
   router.get('/dog', DogController.getDogInfo);
   router.get('/dog/owner', DogController.getAllOwnerDog);
   router.delete('/dog', ensureAuthenticated, DogController.removeDog);
+
+   // interaction
+   router.post('/hang', InteractionController.addNew);
+   router.put('/hang', InteractionController.updateInt);
+   router.get('/hang', InteractionController.getInt);
+   router.get('/hang/owner', InteractionController.getByOwner);
+   router.get('/hang/dog', InteractionController.getByDog);
+ 
+   // location
+   router.post('/location', LocationController.addNew);
+   router.get('/location', LocationController.getAll);
 
   // interaction
   router.post('/hang', InteractionController.addNew);

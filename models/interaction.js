@@ -1,8 +1,13 @@
 
 module.exports = function (sequelize, DataTypes) {
   const Interaction = sequelize.define('Interaction', {
-    rating: {
-      type: DataTypes.INTEGER
+    comment: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     status: {
       type: DataTypes.STRING,
@@ -14,6 +19,13 @@ module.exports = function (sequelize, DataTypes) {
     },
     time: {
       type: DataTypes.TIME,
+      allowNull: false
+    },
+    invitedDog: {
+      type: DataTypes.INTEGER
+    },
+    invitedOwner: {
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   });

@@ -261,6 +261,10 @@ hr {
   margin: 10px 15px 10px 15px;
   padding: 10px;
   box-shadow: 2px 4px 10px black;
+  background: whitesmoke;
+  color: black;
+  border-radius: 5%;
+  text-align: center;
 }
 
 .userDog{
@@ -298,6 +302,7 @@ hr {
 
 .gm-style {
   color: black;
+}
   
 .link {
   text-decoration: none;
@@ -397,11 +402,23 @@ hr {
 }
 
 .otherDogBtn {
-  margin: 0 auto;
+  float: right;
   margin-top: 15px;
 }
 
 .dogPicList {
   float: right;
   height: 100%;
+}
+
+.invite-icon {
+  height: 50px;
+  margin-top: 10px;
+  width: auto;
+  float: left;
+}
+.invite-icon:hover {
+  zoom: 1.1;
+  cursor: pointer;
+  transition-duration: 200ms;
 }
