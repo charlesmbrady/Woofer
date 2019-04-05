@@ -2,8 +2,14 @@ module.exports = function (db) {
   return {
     addNew: (req, res) => {
       db.Interaction.create({
+        comment: req.body.comment,
+        location: req.body.location,
         date: req.body.date,
-        time: req.body.time
+        time: req.body.time,
+        invitedDog: req.body.invitedDog,
+        invitedOwner: req.body.invitedOwner,
+        UserId: req.body.UserId,
+        LocationId: req.body.LocationId
       }).then(result => {
         res.json(result);
       }).catch(err => {
