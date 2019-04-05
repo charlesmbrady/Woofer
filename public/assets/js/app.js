@@ -164,6 +164,9 @@ $('.interaction-modal').on('click', function (event) {
     userImage.addClass('intUserPic');
     userImage.attr('id', 'owner-pic');
     userImage.attr("data-id", response.UserId);
+    locationArray.forEach(location => {
+      
+    });
     $("#dogPic").append(dogImage);
     $("#ownerPic").append(userImage);
     $('#interaction-invite').modal('show');
