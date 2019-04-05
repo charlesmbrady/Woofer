@@ -1,10 +1,9 @@
 $('#add-user').on('click', function (event) {
   event.preventDefault();
   
-  // Need to implement auto-login
+  // TODO: Need to implement auto-login
 
-  // Redirect new user to console upon registration
-  location.href = '/console';
+  // TODO: Redirect new user to console upon registration
 
   let file = document.getElementById('userPic').files[0];
   console.log("FILE", file);
