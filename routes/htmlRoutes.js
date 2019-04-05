@@ -101,33 +101,31 @@ module.exports = (db) => {
             }
           }
         }).then(function(otherDogs){
+          db.Interaction.findAll({
+            where: {
+              UserId: req.session.passport.user.id
+            }
+          }).then(function() {
+            dbDogs.forEach(function(dog){
+              dog.dogPic = dog.dogPic.replace("public/","");
+            });
+  
+            otherDogs.forEach(function(dog){
+              dog.dogPic = dog.dogPic.replace("public/","");
+            });
           
+            const user = {
+              user: req.session.passport.user,
+              isloggedin: req.isAuthenticated(),
+              userImg: req.session.passport.user.userPic.replace("public/", ""),
+              dogs: dbDogs,
+              matches: otherDogs
+            };
+            res.render('console', user);
 
-          dbDogs.forEach(function(dog){
-            dog.dogPic = dog.dogPic.replace("public/","");
           });
-
-          otherDogs.forEach(function(dog){
-            dog.dogPic = dog.dogPic.replace("public/","");
-          });
-          console.log(dbDogs);
-          console.log("___________");
-          console.log(otherDogs);
-        
-          const user = {
-            user: req.session.passport.user,
-            isloggedin: req.isAuthenticated(),
-            userImg: req.session.passport.user.userPic.replace("public/", ""),
-            dogs: dbDogs,
-            matches: otherDogs
-          };
-          res.render('console', user);
         });
       });
-
-
-   
-
     } else {
       res.redirect('/');
     }
