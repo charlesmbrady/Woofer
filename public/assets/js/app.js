@@ -338,8 +338,11 @@ const postDog = (newDog) => {
 var map;
 var service;
 var infowindow;
-var contentString;
+var content;
 var place;
+var myPlaceId;
+var myLocation;
+var results;
 
 function initialize() {
   var location = new google.maps.LatLng(35.913200, -79.055847);
@@ -347,18 +350,20 @@ function initialize() {
   infowindow = new google.maps.InfoWindow();
 
   map = new google.maps.Map(
-      document.getElementById('map'), {center: location, zoom: 15});
+      document.getElementById('map'), {center: location, zoom: 8});
 
   var request = {
     location: location,
     radius: 50000,
-    keyword: [ 'dog park' ]
+    keyword: [ 'dog park', 'address' ]
+    // type: [ 'address' ]
   };
-    contentString = ('<div><strong>' + place.name + '</strong><br>' +
-    'Place ID: ' + place.place_id + '<br>' +
-    place.formatted_address + '</div>');
+    // contentString = ('<div><strong>' + place.name + '</strong><br>' +
+    // 'Place ID: ' + place.place_id + '<br>' +
+    // place.formatted_address + '</div>');
 
-    infowindow = new google.maps.InfoWindow(contentString);
+    infowindow = new google.maps.InfoWindow();
+    // infowindow = new google.maps.InfoWindow(contentString);
     //  ({
     //   content: contentString,
     // }); 
@@ -372,21 +377,32 @@ function initialize() {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
         createMarker(results[i]);
-      }
-
+        console.log(results[i]);
+      };
       map.setCenter(results[0].geometry.location);
-    }
+    };
   };
-}
+};
 
 function createMarker(place) {
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location
+    position: place.geometry.location,
+    placeId: myPlaceId,
+    location: myLocation
   });
+  
+  // myPlaceId = results[0].place_id;
+  // myLocation = results[0].geometry.location;
 
+  content = 'place.name' + 'place.formatted_phone_number' + 'place.formatted_address' + 'place.photos'
+  
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
+    infowindow.setContent(place.name, place.formatted_phone_number, place.formatted_address, place.photos);
+    console.log(place.name);
+    console.log(place.formatted_phone_number);
+    console.log(place.formatted_address);
+    console.log(place.photos.array);
     // infowindow.setContent(details.name + "<br />" + details.formatted_address +"<br />" + details.website + "<br />" + details.rating + "<br />" + details.formatted_phone_number);
     infowindow.open(map, this);
   });
