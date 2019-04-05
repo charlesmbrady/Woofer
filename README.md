@@ -1,11 +1,22 @@
 [![Build Status](https://travis-ci.com/alperg/project2-starter-auth.svg?branch=master)](https://travis-ci.com/alperg/project2-starter-auth)
 
-# Project 2 Starter with Auth
+# Woofer
 
-A simple starter project with Express, Handlebars, Sequelize, Passport and Local Auth.
+A web app that allows users to meet fellow dog moms and dog dads and schedule playdates for their pups.
 
 ## Live link:
-https://project2-starter-auth.herokuapp.com/
+
+## About
+As a team of dog lovers, we wanted to create an app that would allow dog owners to connect and plan playdates. 
+When visiting the site, the user is greeted by a landing page. From here, they can either log in or register.
+Upon registration, the user's information is sent to the database (MySQL), and they can view their user console. This serves as a homepage for the user. Here, they can view a tidbit of the information they provide to others (username, image, and their dog(s)). We used the Google Maps API to grab the user's geolocation and display nearby dog parks. This provides a bit of context for meeting for a playdate. At the bottom of the user's homepage, they can view playmates (the dogs of other user's on the site).
+
+## Coming Soon
+We are currently working on our MVP, but we have several ideas to improve the app!
+- Expand locations to include all sorts of dog-friendly establishments, like breweries and restaurants. We would also like to display nearby veterinary clinics and pet stores.
+- Display different dog-related quotes on the landing page.
+
+## Dependencies
 
 ## Requirements:
 

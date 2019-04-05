@@ -296,6 +296,9 @@ hr {
   margin-left: 25px;
 }
 
+.gm-style {
+  color: black;
+  
 .link {
   text-decoration: none;
   color: white;
@@ -391,4 +394,14 @@ hr {
   height: 150px;
   width: auto;
   margin: 0 auto;
+}
+
+.otherDogBtn {
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.dogPicList {
+  float: right;
+  height: 100%;
 }
