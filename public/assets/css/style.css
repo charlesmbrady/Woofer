@@ -9,6 +9,11 @@ nav {
   background-color: #b5525c;
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .jumbotron {
   background: #105e62;
   color: #fff;
@@ -59,10 +64,22 @@ nav {
   color: #000;
 }
 
-#user-form, .header-wrap, #create-form, .create-user-wrap {
-  padding: 20px;
+#user-form, #create-form {
+  padding: 0;
   border-radius: 15px;
-  margin: 20px 0;
+  margin: 0;
+}
+
+.header-wrap, .create-user-wrap {
+  position: relative;
+  width: 100%;
+  height: 5rem;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #105e62;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-top: 10px;
 }
 
 .header-wrap {
@@ -111,10 +128,24 @@ nav {
   width: 60vw;
   height: 75vh;
   margin: 5rem auto;
-  padding: 15px;
   border-radius: 15px;
-  background-color: #105e62;
-  color: #fff;
+  background-color: #fff;
+  color: #111;
+}
+
+.surveyInnerContainer {
+  position: absolute;
+  width: 100%;
+  height: 85%;
+  margin: 0;
+  line-height: 200%;
+  overflow-y: scroll;
+}
+
+.sectionName {
+  position: relative;
+  width: 100%;
+  background-color: #cc888e;
 }
 
 [data-useremail="true"] {
