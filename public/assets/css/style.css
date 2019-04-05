@@ -395,3 +395,13 @@ hr {
   width: auto;
   margin: 0 auto;
 }
+
+.otherDogBtn {
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.dogPicList {
+  float: right;
+  height: 100%;
+}
