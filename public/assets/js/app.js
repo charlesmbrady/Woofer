@@ -164,9 +164,6 @@ $('.interaction-modal').on('click', function (event) {
     userImage.addClass('intUserPic');
     userImage.attr('id', 'owner-pic');
     userImage.attr("data-id", response.UserId);
-    locationArray.forEach(location => {
-      
-    });
     $("#dogPic").append(dogImage);
     $("#ownerPic").append(userImage);
     $('#interaction-invite').modal('show');
@@ -294,6 +291,7 @@ function initialize() {
       console.log("Location Array", locationArray);
       map.setCenter(results[0].geometry.location);
       addLocations(locationArray);
+      addtoModal(locationArray);
     };
   };
 };
@@ -305,6 +303,13 @@ const addLocations = (locations) => {
     })
   });
 };
+const addtoModal = (locations) => {
+  locations.forEach(location => {
+    console.log("LOCATION", location);
+    let newOption = $('<option>').val(location.name).html(location.name);
+    $('#location').append(newOption);
+ });
+}
 
 
 function createMarker(place) {
