@@ -90,7 +90,7 @@ nav {
   padding-bottom: 2%;
   margin-top: 10%;
   background: #105e62;
-  height:100%;
+  height: 800px;
   border-radius: .25rem;
   margin-bottom: 2%;
   width: 600px;
@@ -104,6 +104,14 @@ nav {
   border-radius: .25rem;
   margin-bottom: 2%;
   width: 100%;
+}
+
+.surveyContainer {
+  position: relative;
+  width: 60vw;
+  height: 75vh;
+  background-color: #105e62;
+  color: #fff;
 }
 
 [data-useremail="true"] {
@@ -280,7 +288,7 @@ hr {
   display: none;
 }
 
- .progress-bar-container {
+.progress-bar-container {
   position: fixed;
   bottom: 0;
   left: 0;

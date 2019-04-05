@@ -402,8 +402,51 @@ const socket = io();
 // connected to the server
 socket.on('connect', () => {
   console.log(`Connected to server`);
+  console.log(socket.id)
 });
 
 socket.on('message', (data)=> {
   console.log(data)
+  
 });
+$("#owner-search").on("click", function(){
+  
+});
+
+$("#location-search").on("click", function(){
+  
+});
+
+
+function displayMatches(matchType){
+  $("#match-display").text("");
+  if(matchType === 'dogs'){
+    displayDogs(matchType);
+  }
+  if(matchType === 'owners'){
+    displayOwners(matchType);
+  }
+  if(matchType === 'locations'){
+    displayLocations(matchType);
+  }
+}
+// TODO: add IDs as data attributes to these when rendered
+function displayDogs(dogs) {
+  dogs.forEach(dog, function(){
+    let match = $("<div>").addClass("match");
+    const dogName = "Dog Name";
+    const dogPicture = "Dog picture";
+    // const message;
+
+  })
+  
+
+  
+}
+function displayOwners(owners) {
+
+}
+
+function displayLocations(locations) {
+
+}
