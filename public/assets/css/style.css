@@ -412,8 +412,11 @@ hr {
 .invite-icon {
   height: 50px;
   margin-top: 10px;
-  width: auto;
+  width: 50px;
   float: left;
+  background-image: url("http://chittagongit.com//images/invite-icon/invite-icon-20.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .invite-icon:hover {
   zoom: 1.1;
