@@ -23,6 +23,10 @@ module.exports = function (sequelize, DataTypes) {
     },
     invitedDog: {
       type: DataTypes.INTEGER
+    },
+    invitedOwner: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   });
   Interaction.associate = (models) => {
