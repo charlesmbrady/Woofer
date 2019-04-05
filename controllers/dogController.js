@@ -2,11 +2,15 @@ module.exports = function (db) {
   return {
     // get dog info for single dog
     getDogInfo: (req, res) => {
+      console.log("REQ Get Dog", req.params.id);
+      // console.log("REQ", req);
       db.Dog.findOne({
         where: {
-          id: req.body.id
-        }
+          id: req.params.id
+        }, 
+        include: [db.User]
       }).then(result => {
+        console.log("RESULT FROM DB DOGCON", result);
         res.json(result);
       }).catch(err => {
         res.json(err);
@@ -25,24 +29,21 @@ module.exports = function (db) {
     // add a new dog
     add: (req, res) => {
       console.log('REQ.FILE', req.file);
-      const dogArray = JSON.parse(req.body.dogArray);
-      console.log('DOG ARRAY', dogArray);
       db.Dog.create({
-        dogName: dogArray[0].dogName,
-        age: dogArray[0].age,
-        weight: dogArray[0].weight,
-        breed: dogArray[0].breed,
-        gender: dogArray[0].gender,
-        isFixed: dogArray[0].isFixed,
-        isUptoDate: dogArray[0].isUptoDate,
-        getAlong: dogArray[0].getAlong,
-        possessive: dogArray[0].possessive,
-        situation: dogArray[0].situation,
-        playStyle: dogArray[0].playStyle,
-        dogPic: req.file.path,
-        UserId: dogArray[0].UserId
+        dogName: req.body["name"],
+        breed: req.body["breed"],
+        age: req.body["age"],
+        weight: req.body["weight"],
+        gender: req.body["type-dog"],
+        isUptoDate: req.body["vaccinated"],
+        getAlong: req.body["dog-issue"].toString(),
+        possessive: req.body["possessive"].toString(),
+        situation: req.body["reactive"].toString(),
+        playStyle: req.body["play-style"].toString(),
+        dogPic: req.file.path.replace("\\", "/"),
+        UserId: req.session.passport.user.id
       }).then(result => {
-        res.json(result);
+        res.redirect("/console");
       }).catch(err => {
         res.json(err);
       });

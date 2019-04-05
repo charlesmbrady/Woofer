@@ -13,12 +13,18 @@ const http = require('http');
 const server = http.createServer(app);
 
 const db = require('./models');
-
+let userArray = [];
 //setup socket.io
 const io = require('socket.io')(server);
-
+io.on('connection', function(socket) {
+  console.log('a user connected');
+  socket.emit('message', 'hello');
+  console.log("SOCKET ID", socket.id);
+  userArray.push(socket.id);
+  console.log(userArray);
+});
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
@@ -44,7 +50,6 @@ if (app.get('env') !== 'development') {
     next(err);
   });
 }
-//comment
 
 db.sequelize.sync({ force: process.env.FORCE_SYNC === 'true' }).then(() => {
   if (process.env.FORCE_SYNC === 'true') {
