@@ -144,7 +144,10 @@ $('#login-modal').on('click', function (event) {
 $('.interaction-modal').on('click', function (event) {
   console.log("INTERACTION MODAL CLicked");
   event.preventDefault();
-  const dogId = $(this).attr('data-id')
+  $("dogPic").empty();
+  $("ownerPic").empty();
+  const dogId = $(this).attr('data-id');
+
   
   console.log(dogId);
   // $.ajax('/api/dog/'+ dogId,(data) => {
@@ -158,13 +161,14 @@ $('.interaction-modal').on('click', function (event) {
     const dogImage = $('<img>').attr('src', response.dogPic.replace('public/', ''));
     const userImage = $('<img>').attr('src', response.User.userPic.replace('public/', ''));
     dogImage.addClass('intDogPic');
+    dogImage.attr('id', 'dog-pic');
     dogImage.attr("data-id", response.id);
     userImage.addClass('intUserPic');
+    userImage.attr('id', 'owner-pic');
     userImage.attr("data-id", response.UserId);
-    $("#ownerPic").append(dogImage);
+    $("#dogPic").append(dogImage);
     $("#ownerPic").append(userImage);
     $('#interaction-invite').modal('show');
-
   });  
 
   
@@ -260,10 +264,16 @@ $('#interaction-create').on('click', function (e) {
   const interactionInfo = {
     comment: $('#comment').val().trim(),
     location: $('#location').val().trim(),
-    when: $('#date').val(),
-
-
-  }
+    date: $('#date').val(),
+    time: $('#time').val(),
+    invitedDog: $('#dog-pic').attr('data-id'),
+    invitedOwner: $('#owner-pic').attr('data-id'),
+    UserId: $('#userBackgroundImage').attr('data-id'),
+    LocationId: 1
+  };
+  console.log(interactionInfo);
+  postInteraction(interactionInfo);
+  $('#interaction-invite').modal('hide');
 });
 const postDog = (newDog) => {
   $.ajax({
@@ -280,7 +290,15 @@ const postDog = (newDog) => {
     }
   });
 };
-
+const postInteraction = (newInt) => {
+  $.ajax({
+    type: 'POST',
+    url: '/api/hang',
+    data: newInt
+  }).then(result => {
+    console.log(result);
+  });
+}
 // // Map options
 // // var latLng = google.maps.LatLng (35.913200, -79.055847);
 

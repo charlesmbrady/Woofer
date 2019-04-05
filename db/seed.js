@@ -162,4 +162,12 @@ module.exports = (db) => {
     UserId: '5'
   }
 ]);
+
+db.Location.create({
+  whatKind: 'dog park',
+  address: '1090 Dog Ln',
+  open: '10:00 PM',
+  description: 'Place for doggos to play',
+  name: 'Oakwood'
+});
 };

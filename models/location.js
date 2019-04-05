@@ -9,12 +9,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    open: {
-      type: DataTypes.TIME
-    },
-    close: {
-      type: DataTypes.TIME
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false
