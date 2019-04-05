@@ -147,7 +147,8 @@ $('.interaction-modal').on('click', function (event) {
   const dogId = $(this).attr('data-id')
   
   console.log(dogId);
-  $.ajax('/api/dog/'+ dogId,(data) => {
+  $.get('/api/dog/'+ dogId,function(data, err) {
+    if (err) throw err
     console.log("DATA", data);
   });
     
