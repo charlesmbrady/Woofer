@@ -150,6 +150,7 @@ $('.interaction-modal').on('click', function (event) {
   $("ownerPic").empty();
   const dogId = $(this).attr('data-id');
   console.log(dogId);
+
   $.ajax({
     url: `api/dog/${dogId}`,
     type: 'GET'
