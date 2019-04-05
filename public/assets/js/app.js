@@ -155,9 +155,19 @@ $('.interaction-modal').on('click', function (event) {
     type: 'GET'
   }).then(response => {
     console.log(response);
+    const dogImage = $('<img>').attr('src', response.dogPic.replace('public/', ''));
+    const userImage = $('<img>').attr('src', response.User.userPic.replace('public/', ''));
+    dogImage.addClass('intDogPic');
+    dogImage.attr("data-id", response.id);
+    userImage.addClass('intUserPic');
+    userImage.attr("data-id", response.UserId);
+    $("#ownerPic").append(dogImage);
+    $("#ownerPic").append(userImage);
+    $('#interaction-invite').modal('show');
+
   });  
 
-  $('#interaction-invite').modal('show');
+  
 });
 
 $('#go-home').on('click', function (event) {
