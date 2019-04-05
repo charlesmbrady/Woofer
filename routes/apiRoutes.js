@@ -49,10 +49,10 @@ module.exports = (passport, db) => {
 
   // Dog
   //  router.post('/dog', DogController.add);
-  router.post('/dog', upload.single('dogPic'), DogController.add);
+  router.post('/dog', ensureAuthenticated, upload.single('dogPic'), DogController.add);
   router.get('/dog', DogController.getDogInfo);
   router.get('/dog/owner', DogController.getAllOwnerDog);
-  router.delete('/dog', DogController.removeDog);
+  router.delete('/dog', ensureAuthenticated, DogController.removeDog);
 
   // interaction
   router.post('/hang', InteractionController.addNew);

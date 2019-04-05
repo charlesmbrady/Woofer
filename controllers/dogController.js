@@ -26,8 +26,11 @@ module.exports = function (db) {
     add: (req, res) => {
       console.log('REQ.FILE', req.file);
       console.log(req.body);
+      console.log(req.session)
+      console.log(req.session.passport)
+      console.log(req.session.passport.user)
       // const dogArray = JSON.parse(req.body.dogArray);
-      console.log('DOG ARRAY');
+      // console.log('DOG ARRAY');
       db.Dog.create({
         dogName: req.body["name"],
         breed: req.body["breed"],
@@ -35,15 +38,16 @@ module.exports = function (db) {
         weight: req.body["weight"],
         gender: req.body["type-dog"],
         isUptoDate: req.body["vaccinated"],
-        getAlong: req.body["dog-issue"],
-        possessive: req.body["possessive"],
-        situation: req.body["reactive"],
-        playStyle: req.body["play-style"],
-        dogPic: req.file.path,
-        // TODO: Not sure where userId is coming from - is it just user-id?
-        UserId: req.body[""]
+        getAlong: req.body["dog-issue"].toString(),
+        possessive: req.body["possessive"].toString(),
+        situation: req.body["reactive"].toString(),
+        playStyle: req.body["play-style"].toString(),
+        dogPic: req.file.path.replace("\\", "/"),
+        UserId: req.session.passport.user.id
       }).then(result => {
-        res.json(result);
+        // res.json(result);
+        // req.session.save(() => res.redirect("/console"));
+        res.redirect("/console");
       }).catch(err => {
         res.json(err);
       });

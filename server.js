@@ -18,7 +18,7 @@ const db = require('./models');
 const io = require('socket.io')(server);
 
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
@@ -44,7 +44,6 @@ if (app.get('env') !== 'development') {
     next(err);
   });
 }
-//comment
 
 db.sequelize.sync({ force: process.env.FORCE_SYNC === 'true' }).then(() => {
   if (process.env.FORCE_SYNC === 'true') {

@@ -6,7 +6,7 @@
 </header>
     <div class="surveyInnerContainer">
         <div class="row">
-            <form id= "create-form" class="col md12" action="/api/dog" method="post">
+            <form id= "create-form" class="col md12" action="/api/dog" method="post" enctype="multipart/form-data">
                 <div class="surveySection">
                     <h3 class="sectionName">Part 1: The Basics</h3>
                     <br>
@@ -339,7 +339,7 @@
                         <div class="file-field input-field">
                             <div class="btn">
                                 <span>Upload a Picture</span>
-                                <input type="file" id="dog-pic">
+                                <input type="file" name="dogPic" id="dog-pic">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">

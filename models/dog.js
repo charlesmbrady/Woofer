@@ -34,6 +34,10 @@ module.exports = function (sequelize, DataTypes) {
     playStyle: {
       type: DataTypes.STRING
     },
+    // TODO: fave-activity
+    faveActivity: {
+      type: DataTypes.STRING
+    },
     dogPic: {
       type: DataTypes.STRING
     }
