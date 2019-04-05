@@ -98,9 +98,22 @@ module.exports = (db) => {
           where: {
             UserId: {
               [Op.ne]: req.session.passport.user.id
-            } //this is important
+            }
           }
         }).then(function(otherDogs){
+          
+
+          dbDogs.forEach(function(dog){
+            dog.dogPic = dog.dogPic.replace("public/","");
+          });
+
+          otherDogs.forEach(function(dog){
+            dog.dogPic = dog.dogPic.replace("public/","");
+          });
+          console.log(dbDogs);
+          console.log("___________");
+          console.log(otherDogs);
+        
           const user = {
             user: req.session.passport.user,
             isloggedin: req.isAuthenticated(),
