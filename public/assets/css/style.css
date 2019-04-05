@@ -9,6 +9,11 @@ nav {
   background-color: #b5525c;
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .jumbotron {
   background: #105e62;
   color: #fff;
@@ -59,10 +64,22 @@ nav {
   color: #000;
 }
 
-#user-form, .header-wrap, #create-form, .create-user-wrap {
-  padding: 20px;
+#user-form, #create-form {
+  padding: 0;
   border-radius: 15px;
-  margin: 20px 0;
+  margin: 0;
+}
+
+.header-wrap, .create-user-wrap {
+  position: relative;
+  width: 100%;
+  height: 5rem;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #105e62;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-top: 10px;
 }
 
 .header-wrap {
@@ -90,7 +107,7 @@ nav {
   padding-bottom: 2%;
   margin-top: 10%;
   background: #105e62;
-  height:100%;
+  height: 800px;
   border-radius: .25rem;
   margin-bottom: 2%;
   width: 600px;
@@ -104,6 +121,32 @@ nav {
   border-radius: .25rem;
   margin-bottom: 2%;
   width: 100%;
+}
+
+.surveyContainer {
+  position: relative;
+  width: 60vw;
+  height: 75vh;
+  margin: 5rem auto;
+  border-radius: 15px;
+  background-color: #fff;
+  color: #111;
+}
+
+.surveyInnerContainer {
+  position: absolute;
+  width: 100%;
+  height: 85%;
+  margin: 0;
+  line-height: 200%;
+  overflow-y: scroll;
+  overflow-x:hidden;
+}
+
+.sectionName {
+  position: relative;
+  width: 100%;
+  background-color: #cc888e;
 }
 
 [data-useremail="true"] {
@@ -133,8 +176,6 @@ hr {
 .card-body {
   color: #105e62;
 }
-
-
 
 .main{
   height: 100%;
@@ -257,4 +298,100 @@ hr {
 
 .gm-style {
   color: black;
+  
+.link {
+  text-decoration: none;
+  color: white;
+}
+.link:hover{
+  color: white;
+  text-decoration: none;
+
+}
+
+.linkleft {
+  float: left;
+}
+.linkright{
+  float: right;
+}
+.addDog{
+  clear: both;
+}
+.edit {
+  color: lightblue;
+}
+
+#hiddenUserId {
+  display: none;
+}
+
+.progress-bar-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  display: flexbox;
+  width: 100vw;
+  height: 10vh;
+  background-color: #b5525c;
+}
+
+.progress-bar {
+  counter-reset: step;
+  display: flex;
+  flex-direction: row;
+  background-color: #b5525c;
+  margin-top: 2vh;
+}
+
+.progress-bar li {
+  list-style-type: none;
+  float: left;
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+}
+
+.progress-bar li::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid #cc888e;
+  display: block;
+  text-align: center;
+  margin: 0px auto 10px auto;
+  border-radius: 50%;
+}
+
+.progress-bar li::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  top: 15px;
+  left: -50%;
+}
+
+.progress-bar li:first-child::after {
+  content: none;
+}
+
+.matchImg{
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100px;
+  border: 1px solid black;
+  text-align: center;
+  align-content: center;
+}
+
+.otherDogImage {
+  height: 150px;
+  width: auto;
+  margin: 0 auto;
 }

@@ -1,5 +1,10 @@
 $('#add-user').on('click', function (event) {
   event.preventDefault();
+  
+  // TODO: Need to implement auto-login
+
+  // TODO: Redirect new user to console upon registration
+
   let file = document.getElementById('userPic').files[0];
   console.log("FILE", file);
   let userInfo = new FormData();
@@ -23,7 +28,11 @@ $('.profile-picture').on('click', function (event)  {
   userInfo.append('userPic', file);
 });
 
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
+  if (newAccount.password.length > 0 
+    && newAccount.email.length > 0 
+    && newAccount.password.length > 0 
+    && newAccount.lastName.length > 0 
+    && newAccount.firstName.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
@@ -59,7 +68,11 @@ $('#update-user').on('click', function (event) {
   // $('#change-user-modal').modal('show');
   console.log(changeUser);
 
-  if (changeUser.password.length > 0 && changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.lastName.length > 0 && changeUser.firstName.length > 0) {
+  if (changeUser.password.length > 0 
+    && changeUser.email.length > 0 
+    && changeUser.password.length > 0 
+    && changeUser.lastName.length > 0 
+    && changeUser.firstName.length > 0) {
     $.ajax({
       type: 'PUT',
       url: `/api/user/${id}`,
@@ -171,8 +184,6 @@ $('#add-dog').on('click', function (e) {
   let file = document.getElementById('dog-pic').files[0];
   console.log('FILE', file);
   
-  
-
   // eslint-disable-next-line no-undef
   let dogInfo = new FormData();
   dogInfo.append('dogPic', file);
@@ -190,7 +201,7 @@ $('#add-dog').on('click', function (e) {
     situation: $('#reactive').val().join(),
     playStyle: $('#play-style').val().join(),
     dogPic: file,
-    UserId: 7
+    UserId: $("#hiddenUserId").text()
   };
   console.log('SURVEY RESPONSE', surveyResponse);
   surveyArray.push(surveyResponse);
@@ -408,3 +419,16 @@ function createMarker(place) {
   });
 };
 
+//____________________________ search buttons/calls _________________//
+
+$("#dog-search").on("click", function(){
+  
+});
+
+$("#owner-search").on("click", function(){
+  
+});
+
+$("#location-search").on("click", function(){
+  
+});
