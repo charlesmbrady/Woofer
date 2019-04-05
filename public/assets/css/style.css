@@ -230,6 +230,9 @@ hr {
   border: 1px solid white;
   overflow: scroll;
 }
+.userDog * {
+  display: inline-block;
+}
 #map {
   height: 450px;
   width: 100%;
@@ -266,10 +269,14 @@ hr {
 }
 
 .userDog{
-  height: 60px;
+  height: 75px;
   width: 100%;
   padding: 5px;
   color: white;
+  border-bottom: 2px solid white;
+}
+.userDogName{
+  padding: 5px;
 }
 .userDog:hover{
   color: blue;
@@ -408,6 +415,10 @@ hr {
   float: right;
   height: 100%;
 }
+.dogThumbnail {
+  height: 50px;
+  width: auto;
+}
 
 .invite-icon {
   height: 50px;
@@ -441,4 +452,8 @@ hr {
   height: 5%;
   width: 100%;
   padding: 10px;
+}
+
+.userInteractions * {
+  display: inline-block;
 }

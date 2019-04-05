@@ -21,6 +21,9 @@
         </div>
         <h4 class="yourInteractions">Invites</h4>
         <div id="settingsBox">
+          {{#each interactions}}
+          {{> interactions/interaction-block}}
+          {{/each}}
 
         </div>
       </div>
