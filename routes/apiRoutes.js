@@ -47,22 +47,22 @@ module.exports = (passport, db) => {
   router.post('/examples', ensureAuthenticated, AppController.createExample);
   router.delete('/examples/:id', ensureAuthenticated, AppController.deleteExample);
 
-   // Dog
-   router.post('/dog', upload.single('dogPic'), DogController.add);
-   router.get('/dog/:id', DogController.getDogInfo);
-   router.get('/dog/owner', DogController.getAllOwnerDog);
-   router.delete('/dog', DogController.removeDog);
- 
-   // interaction
-   router.post('/hang', InteractionController.addNew);
-   router.put('/hang', InteractionController.updateInt);
-   router.get('/hang', InteractionController.getInt);
-   router.get('/hang/owner', InteractionController.getByOwner);
-   router.get('/hang/dog', InteractionController.getByDog);
- 
-   // location
-   router.post('/location', LocationController.addNew);
-   router.get('/location', LocationController.getAll);
+  // Dog
+  router.post('/dog', ensureAuthenticated, upload.single('dogPic'), DogController.add);
+  router.get('/dog', DogController.getDogInfo);
+  router.get('/dog/owner', DogController.getAllOwnerDog);
+  router.delete('/dog', ensureAuthenticated, DogController.removeDog);
 
-  return router;
+  // interaction
+  router.post('/hang', InteractionController.addNew);
+  router.put('/hang', InteractionController.updateInt);
+  router.get('/hang', InteractionController.getInt);
+  router.get('/hang/owner', InteractionController.getByOwner);
+  router.get('/hang/dog', InteractionController.getByDog);
+
+  // location
+  router.post('/location', LocationController.addNew);
+  router.get('/location', LocationController.getAll);
+
+return router;
 };

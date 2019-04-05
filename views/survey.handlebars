@@ -6,18 +6,18 @@
 </header>
     <div class="surveyInnerContainer">
         <div class="row">
-            <form id= "create-form" class="col md12">
+            <form id= "create-form" class="col md12" action="/api/dog" method="post" enctype="multipart/form-data">
                 <div class="surveySection">
                     <h3 class="sectionName">Part 1: The Basics</h3>
                     <br>
                     <div class="row">
                         <div class="input-field col md12">
                             <h5><label for="name">Name</label></h5>
-                            <input type="text" class="validate" id="name" placeholder="">
+                            <input name="name" type="text" class="validate" id="name" placeholder="">
                         </div>
                         <div class="input-field col md12">
                             <h5><label for="breed">Breed</label></h5>
-                            <select id="breed">
+                            <select name="breed" id="breed">
                                 <option value=" " disabled selected>Please select</option>
                                 <option value="Affenpinscher">Affenpinscher</option>
                                 <option value="Afghan Hound">Afghan Hound</option>
@@ -192,11 +192,11 @@
                     <div class="row">
                         <div class="input-field col md12">
                             <h5><label for="age">Age</label></h5>
-                            <input type="text" class="validate" id="age" placeholder="">
+                            <input name="age" type="text" class="validate" id="age" placeholder="">
                         </div>
                         <div class="input-field col md12">
                             <h5><label for="weight">Weight (lb)</label></h5>
-                            <input type="text" class="validate" id="weight" placeholder="">
+                            <input name="weight" type="text" class="validate" id="weight" placeholder="">
                         </div>
                     </div>
                     <br>
@@ -244,13 +244,13 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                <input id="issue-type" name="dog-issue" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="dog-issue" value="men" type="checkbox" aria-label="Checkbox for following text input" id="issue-type">
                                 Men 
-                                <input id="issue-type" name="dog-issue" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="dog-issue" value="women" type="checkbox" aria-label="Checkbox for following text input">
                                 Women
-                                <input id="issue-type" name="dog-issue" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="dog-issue" value="children" type="checkbox" aria-label="Checkbox for following text input">
                                 Children
-                                <input id="issue-type" name="dog-issue" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="dog-issue" value="certain breeds" type="checkbox" aria-label="Checkbox for following text input">
                                 Certain Breeds
                                 </div>
                             </div>
@@ -261,13 +261,13 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                <input id="possessive" name="possessive" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="possessive" value="food or treats" type="checkbox" aria-label="Checkbox for following text input" id="possessive" >
                                 Food or treats 
-                                <input id="possessive" name="possessive" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="possessive" value="water" type="checkbox" aria-label="Checkbox for following text input">
                                 Water
-                                <input id="possessive" name="possessive" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="possessive" value="toys" type="checkbox" aria-label="Checkbox for following text input">
                                 Toys
-                                <input id="possessive" name="possessive" type="text" class="form-control" aria-label="Text input with checkbox">
+                                <input name="possessive" value="" type="text" class="form-control" aria-label="Text input with checkbox">
                                 Other
                                 </div>
                             </div>
@@ -278,15 +278,15 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                <input  id="reactive" name="reactive" type="checkbox" aria-label="Checkbox for following text input">
+                                <input  name="reactive" value="Meeting other dogs when leashed" type="checkbox" aria-label="Checkbox for following text input" id="reactive">
                                 Meeting other dogs when leashed 
-                                <input  id="reactive" name="reactive" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="reactive" value="Meeting other dogs when unleashed" type="checkbox" aria-label="Checkbox for following text input">
                                 Meeting other dogs when unleashed
-                                <input  id="reactive" name="reactive" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="reactive" value="Seeing dogs through a fence or other barrier (barrier aggression)" type="checkbox" aria-label="Checkbox for following text input">
                                 Seeing dogs through a fence or other barrier (barrier aggression)
-                                <input  id="reactive" name="reactive" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="reactive" value="When unexpectedly touched" type="checkbox" aria-label="Checkbox for following text input">
                                 When unexpectedly touched
-                                <input  id="reactive" name="reactive" type="text" class="form-control" aria-label="Text input with checkbox">
+                                <input name="reactive" vaue="" type="text" class="form-control" aria-label="Text input with checkbox">
                                 Other
                                 </div>
                             </div>
@@ -297,15 +297,15 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                <input  id="play-style" name="play-style" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="play-style" value="wrestling" type="checkbox" aria-label="Checkbox for following text input" id="play-style" >
                                 Wrestling
-                                <input  id="play-style" name="play-style" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="play-style" value="boxing" type="checkbox" aria-label="Checkbox for following text input">
                                 Boxing
-                                <input  id="play-style" name="play-style" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="play-style" value="slamming" type="checkbox" aria-label="Checkbox for following text input">
                                 Slamming
-                                <input  id="play-style" name="play-style" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="play-style" value="chasing" type="checkbox" aria-label="Checkbox for following text input">
                                 Chasing
-                                <input  id="play-style" name="play-style" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="play-style" value="tag" type="checkbox" aria-label="Checkbox for following text input">
                                 Tag
                                 </div>
                             </div>
@@ -316,18 +316,20 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                <input id="fave-activity" name="fave-activity" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="fave-activity" value="walking" type="checkbox" aria-label="Checkbox for following text input" id="fave-activity" >
                                 Walking
-                                <input id="fave-activity" name="fave-activity" type="checkbox" aria-label="Checkbox for following text input">
-                                Jogging/Running
-                                <input id="fave-activity" name="fave-activity" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="fave-activity" value="running" type="checkbox" aria-label="Checkbox for following text input">
+                                Running
+                                <input name="fave-activity" value="hiking" type="checkbox" aria-label="Checkbox for following text input">
                                 Hiking
-                                <input id="fave-activity" name="fave-activity" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="fave-activity" value="swimming" type="checkbox" aria-label="Checkbox for following text input">
                                 Swimming
-                                <input id="fave-activity" name="fave-activity" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="fave-activity" value="sunbathing" type="checkbox" aria-label="Checkbox for following text input">
                                 Sunbathing
-                                <input id="fave-activity" name="fave-activity" type="checkbox" aria-label="Checkbox for following text input">
+                                <input name="fave-activity" value="lounging" type="checkbox" aria-label="Checkbox for following text input">
                                 Lounging
+                                <input name="fave-activity" value="fetch" type="checkbox" aria-label="Checkbox for following text input">
+                                Playing fetch
                                 </div>
                             </div>
                         </div>
@@ -337,7 +339,7 @@
                         <div class="file-field input-field">
                             <div class="btn">
                                 <span>Upload a Picture</span>
-                                <input type="file" id="dog-pic">
+                                <input type="file" name="dogPic" id="dog-pic">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">

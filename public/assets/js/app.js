@@ -195,56 +195,66 @@ $('#login').on('click', function (event) {
 });
 
 
-$('#add-dog').on('click', function (e) {
-  e.preventDefault();
-  const typeDog = $('input[name=type-dog]:checked').val();
-  let sex;
-  let isNeutered;
-  if (typeDog === 'male' || typeDog === 'female') {
-    isNeutered = false;
-  } else {
-    isNeutered = true;
-  }
-  if (typeDog === 'male' || typeDog === 'neutered male') {
-    sex = 'male';
-  } else {
-    sex = 'female';
-  }
-  let issueType = $('#issue-type').val().join();
-  console.log('ISSUE TYPE', issueType);
-  let file = document.getElementById('dog-pic').files[0];
-  console.log('FILE', file);
-  
-  // eslint-disable-next-line no-undef
-  let dogInfo = new FormData();
-  dogInfo.append('dogPic', file);
-  let surveyArray = [];
-  const surveyResponse = {
-    dogName: $('#name').val(),
-    age: $('#age').val(),
-    weight: $('#weight').val(),
-    breed: $('#breed').val(),
-    gender: sex,
-    isFixed: isNeutered,
-    isUptoDate: $('input[name=vaccinated]:checked').val(),
-    getAlong: issueType,
-    possessive: $('#possessive').val().join(),
-    situation: $('#reactive').val().join(),
-    playStyle: $('#play-style').val().join(),
-    dogPic: file,
-    UserId: $("#hiddenUserId").text()
-  };
-  console.log('SURVEY RESPONSE', surveyResponse);
-  surveyArray.push(surveyResponse);
-  dogInfo.append('dogArray', JSON.stringify(surveyArray));
-  console.log(dogInfo);
-  $('input:radio').attr('checked', false);
-  $('option').attr('checked', false);
-  $('input:text').val('');
-  postDog(dogInfo);
+// $('#add-dog').on('click', function (e) {
+//   e.preventDefault();
+//   const typeDog = $('input[name=type-dog]:checked').val();
+//   let sex;
+//   let isNeutered;
+//   if (typeDog === 'male' || typeDog === 'female') {
+//     isNeutered = false;
+//   } else {
+//     isNeutered = true;
+//   }
+//   if (typeDog === 'male' || typeDog === 'neutered male') {
+//     sex = 'male';
+//   } else {
+//     sex = 'female';
+//   }
+//   let issueType = $('#issue-type').val().join();
 
-  // console.log(surveyResonse);
-});
+//   console.log('ISSUE TYPE', issueType);
+//   let file = document.getElementById('dog-pic').files[0];
+//   console.log('FILE', file);
+  
+//   // eslint-disable-next-line no-undef
+//   let dogInfo = new FormData();
+//   dogInfo.append('dogPic', file);
+//   let surveyArray = [];
+//   $.each($('input[name=\'play-style\']:checked'), function() {
+//     console.log($(this).val());
+//   });
+//   const surveyResponse = {
+//     dogName: $('#name').val(),
+//     age: $('#age').val(),
+//     weight: $('#weight').val(),
+//     breed: $('#breed').val(),
+//     gender: sex,
+//     isFixed: isNeutered,
+//     isUptoDate: $('input[name=vaccinated]:checked').val(),
+//     getAlong: issueType,
+//     possessive: $.each($('input[name=\'possessive\']:checked'), function() {
+//       console.log($(this).val());
+//     }),
+//     situation: $.each($('input[name=\'reactive\']:checked'), function() {
+//       console.log($(this).val());
+//     }),
+//     playStyle: $.each($('input[name=\'play-style\']:checked'), function() {
+//       console.log($(this).val());
+//     }),
+//     dogPic: file,
+//     UserId: $("#hiddenUserId").text()
+//   };
+//   console.log('SURVEY RESPONSE', surveyResponse);
+//   surveyArray.push(surveyResponse);
+//   dogInfo.append('dogArray', JSON.stringify(surveyArray));
+//   console.log(dogInfo);
+//   $('input:radio').attr('checked', false);
+//   $('option').attr('checked', false);
+//   $('input:text').val('');
+//   postDog(dogInfo);
+
+//   // console.log(surveyResonse);
+// });
 
 $('#interaction-create').on('click', function (e) {
   const interactionInfo = {
