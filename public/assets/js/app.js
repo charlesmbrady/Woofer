@@ -1,10 +1,9 @@
 $('#add-user').on('click', function (event) {
   event.preventDefault();
-  
   // Need to implement auto-login
 
   // Redirect new user to console upon registration
-  location.href = '/console';
+  // location.href = '/console';
 
   let file = document.getElementById('userPic').files[0];
   console.log("FILE", file);
@@ -19,21 +18,21 @@ $('#add-user').on('click', function (event) {
   };
   userArray.push(newAccount);
   userInfo.append('userArray', JSON.stringify(userArray));
-  console.log("USER ARRAY", userArray);
-  console.log("New Account", newAccount);
-  
-$('.profile-picture').on('click', function (event)  {
-  event.preventDefault();
-  let file = document.getElementById('updatePic').files[0];
-  let userInfo = new FormData();
-  userInfo.append('userPic', file);
-});
+  console.log('USER ARRAY', userArray);
+  console.log('New Account', newAccount);
+  // update profile pic
+  $('.profile-picture').on('click', function (event) {
+    event.preventDefault();
+    let file = document.getElementById('updatePic').files[0];
+    let userInfo = new FormData();
+    userInfo.append('userPic', file);
+  });
 
-  if (newAccount.password.length > 0 
-    && newAccount.email.length > 0 
-    && newAccount.password.length > 0 
-    && newAccount.lastName.length > 0 
-    && newAccount.firstName.length > 0) {
+  if (newAccount.password.length > 0 &&
+    newAccount.email.length > 0 &&
+    newAccount.password.length > 0 &&
+    newAccount.lastName.length > 0 &&
+    newAccount.firstName.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
@@ -42,9 +41,9 @@ $('.profile-picture').on('click', function (event)  {
       processData: false,
       contentType: false,
       cache: false,
-      success: function(data) {
+      success: function (data) {
         console.log(data);
-      window.location.href = '/';
+        window.location.href = '/';
       }
     });
   } else {
@@ -141,22 +140,22 @@ $('#register').on('click', function (event) {
   window.location.href = '/register';
 });
 
-//open login modal
+// open login modal
 $('#login-modal').on('click', function (event) {
   console.log('login-modal button clicked');
   event.preventDefault();
   $('#user-info').modal('show');
 });
 
-//open interaction modal
+// open interaction modal
 $('.interaction-modal').on('click', function (event) {
+
   console.log('INTERACTION MODAL CLicked');
   event.preventDefault();
   $('dogPic').empty();
   $('ownerPic').empty();
   const dogId = $(this).attr('data-id');
   console.log(dogId);
-
   $.ajax({
     url: `api/dog/${dogId}`,
     type: 'GET'
@@ -173,7 +172,39 @@ $('.interaction-modal').on('click', function (event) {
     $("#dogPic").append(dogImage);
     $("#ownerPic").append(userImage);
     $('#interaction-invite').modal('show');
-  });  
+  });
+});
+
+$('.interactionDeets').on('click', function (e) {
+  e.preventDefault();
+  console.log('INTERACTION CLICKED');
+  const id = $(this).attr('data-id');
+  const dogId = $(this).attr('data-dogId');
+  console.log('ID', id);
+  $.ajax({
+    url: `/api/hang/${id}`,
+    type: 'GET'
+  }).then(result => {
+    console.log(result);
+    const ownerPicInter = $('<img>').attr('src', result.User.userPic.replace('public/', ''));
+    $('#ownerPic-interaction').append(ownerPicInter);
+    $('#name-detail').append(result.User.name);
+    $('#where-detail').append(result.location);
+    $('#when-detail').append(result.time);
+    $('#date-detail').append(result.date);
+    $('#date-detail').append(result.comment);
+    $('#interaction-accept, #interaction-decline').attr('data-id', id);
+  });
+  $.ajax({
+    url: `/api/dog/${dogId}`,
+    type: 'GET'
+  }).then(result => {
+    console.log(result);
+    const dogPicInter = $('<img>').attr('src', result.dogPic.replace('public/', ''));
+    $('#dog-detail').append(result.dogName);
+    $('#dogPic-interaction').append(dogPicInter);
+    $('#interaction-detail').modal('show');
+  });
 });
 
 $('#go-home').on('click', function (event) {
@@ -200,6 +231,34 @@ $('#login').on('click', function (event) {
   });
 });
 
+$('#interaction-accept').on('click', function (e) {
+  e.preventDefault();
+  const interactionDecision = {
+    status: 'accepted',
+    id: $(this).attr('data-id')
+  };
+  $.ajax({
+    url: 'api/hang/',
+    type: 'PUT',
+    data: interactionDecision
+  }, (result) => {
+    console.log(result);
+  });
+});
+$('#interaction-decline').on('click', function (e) {
+  e.preventDefault();
+  const interactionDecision = {
+    status: 'declined',
+    id: $(this).attr('data-id')
+  };
+  $.ajax({
+    url: 'api/hang/',
+    type: 'PUT',
+    data: interactionDecision
+  }, (result) => {
+    console.log(result);
+  });
+});
 $('#interaction-create').on('click', function (e) {
   const interactionInfo = {
     comment: $('#comment').val().trim(),

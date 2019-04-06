@@ -17,9 +17,10 @@ module.exports = function (db) {
       });
     },
     updateInt: (req, res) => {
+      console.log(req.body);
       let updateArray = Object.keys(req.body);
       let updateObj = {};
-      updateObj[updateArray[0]] = req.body.update;
+      updateObj[updateArray[0]] = req.body.status;
       db.Interaction.update(updateObj,
         {
           where: {
@@ -34,8 +35,9 @@ module.exports = function (db) {
     getInt: (req, res) => {
       db.Interaction.findOne({
         where: {
-          id: req.body.id
-        }
+          id: req.params.id
+        },
+        include: [db.User]
       }).then(result => {
         res.json(result);
       }).catch(err => {

@@ -56,7 +56,7 @@ module.exports = (passport, db) => {
   // interaction
   router.post('/hang', InteractionController.addNew);
   router.put('/hang', InteractionController.updateInt);
-  router.get('/hang', InteractionController.getInt);
+  router.get('/hang/:id', InteractionController.getInt);
   router.get('/hang/owner', InteractionController.getByOwner);
   router.get('/hang/dog', InteractionController.getByDog);
 
