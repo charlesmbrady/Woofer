@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
+// test
 module.exports = (db) => {
   // Load register page
   router.get('/register', (req, res) => {
