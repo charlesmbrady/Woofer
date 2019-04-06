@@ -176,6 +176,14 @@ $('.interaction-modal').on('click', function (event) {
 });
 
 $('.interactionDeets').on('click', function (e) {
+  $('#ownerPic-interaction').empty();
+  $('#name-detail').empty();
+  $('#where-detail').empty();
+  $('#when-detail').empty();
+  $('#date-detail').empty();
+  $('#date-commment').empty();
+  $('#dog-detail').empty();
+  $('#dogPic-interaction').empty();
   e.preventDefault();
   console.log('INTERACTION CLICKED');
   const id = $(this).attr('data-id');
@@ -192,7 +200,7 @@ $('.interactionDeets').on('click', function (e) {
     $('#where-detail').append(result.location);
     $('#when-detail').append(result.time);
     $('#date-detail').append(result.date);
-    $('#date-detail').append(result.comment);
+    $('#date-comment').append(result.comment);
     $('#interaction-accept, #interaction-decline').attr('data-id', id);
   });
   $.ajax({
@@ -243,6 +251,7 @@ $('#interaction-accept').on('click', function (e) {
     data: interactionDecision
   }, (result) => {
     console.log(result);
+    window.location.href = '/console';
   });
 });
 $('#interaction-decline').on('click', function (e) {
@@ -257,6 +266,7 @@ $('#interaction-decline').on('click', function (e) {
     data: interactionDecision
   }, (result) => {
     console.log(result);
+    window.location.href = '/console';
   });
 });
 $('#interaction-create').on('click', function (e) {
@@ -464,9 +474,9 @@ $('.dogProfileModal').on('click', function () {
     const situation = $('<h5>').text(`Situations ${dog.dogName} doesn't like: ${dog.situation}`);
     const playStyle = $('<h5>').text(`Playstyle: ${dog.playStyle}`);
     const faveActivity = $('<h5>').text(`Favorite Activity: ${dog.faveActivity}`);
-    const dogPic = dog.dogPic.replace('public/assets', '..'); // for some reason couldn't get this to work
-    $('dogProfilebBody').text('');
-    $('#dogProfileBody').append(age, weight, breed, gender, isUptoDate, getAlong, possessive, situation, playStyle, faveActivity);
+    const dogPic = $('<img>').attr('src', dog.dogPic.replace('public/', '')); // for some reason couldn't get this to work
+    $('#dogProfileBody').empty();
+    $('#dogProfileBody').append(dogPic, age, weight, breed, gender, isUptoDate, getAlong, possessive, situation, playStyle, faveActivity);
     // $('#dogProfileImage').attr('src', dogPic);  // for some reason couldn't get this to work
     console.log(dogPic);
 
