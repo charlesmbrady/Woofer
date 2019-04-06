@@ -230,12 +230,15 @@ hr {
 }
 
 #left{
+  position: relative;
+  top: 2vh;
+  left: 0;
   background: #f7b633;
   height: 100%;
 }
 
 #right {
-  background: white;
+  background: #ebebeb;
   height: 100%;
 }
 
@@ -244,8 +247,21 @@ hr {
   height: 100%;
 }
 
+.invite-map-row {
+  position: relative;
+  height: 600px;
+}
+
+#invites {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
 #settingsBox{
-  height: 20%;
+  height: 90%;
   margin-top: 0;
   overflow-y: scroll;
   background-color: #fff;
@@ -279,7 +295,7 @@ hr {
 }
 
 #map {
-  height: 600px;
+  height: 550px;
   width: 600px;
   margin-top: 7px;
   padding: 10px;
@@ -290,7 +306,7 @@ hr {
   background: #fff;
   height: 40%;
   margin-top: 10px;
-  bottom: 5%;
+  margin-left: 2vw;
   border: 1px solid #ebebeb;
   white-space: nowrap;
   overflow: auto;
@@ -472,9 +488,12 @@ a:hover {
   text-decoration: none;
 }
 
+.contributor:hover {
+  opacity: 0.6;
+}
 .userInteraction:hover{
-  color: lightskyblue;
-  background: white;
+  color: #FF755D;
+  background: #fff;
   text-shadow: 3px black;
   cursor: pointer;
   transition-duration: 200ms;
