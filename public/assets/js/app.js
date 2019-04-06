@@ -465,7 +465,7 @@ $('.dogProfileModal').on('click', function () {
     const playStyle = $('<h5>').text(`Playstyle: ${dog.playStyle}`);
     const faveActivity = $('<h5>').text(`Favorite Activity: ${dog.faveActivity}`);
     const dogPic = dog.dogPic.replace('public/assets', '..'); // for some reason couldn't get this to work
-    $('dogProfilebBody').text('');
+    $('dogProfilebBody').html('');
     $('#dogProfileBody').append(age, weight, breed, gender, isUptoDate, getAlong, possessive, situation, playStyle, faveActivity);
     // $('#dogProfileImage').attr('src', dogPic);  // for some reason couldn't get this to work
     console.log(dogPic);
