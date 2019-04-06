@@ -144,10 +144,10 @@ $('#login-modal').on('click', function (event) {
 
 //open interaction modal
 $('.interaction-modal').on('click', function (event) {
-  console.log("INTERACTION MODAL CLicked");
+  console.log('INTERACTION MODAL CLicked');
   event.preventDefault();
-  $("dogPic").empty();
-  $("ownerPic").empty();
+  $('dogPic').empty();
+  $('ownerPic').empty();
   const dogId = $(this).attr('data-id');
   console.log(dogId);
 
@@ -370,5 +370,30 @@ socket.on('connect', () => {
 
 socket.on('message', (data)=> {
   console.log(data)
+  
+});
+
+$('.dogProfileModal').on('click', function () {
+  const dogId = $(this).attr('data-id');
+
+  $.ajax({
+    url: `api/dog/${dogId}`,
+    type: 'GET'
+  }).then(dog => {
+    const age = dog.age;
+    const weight = dog.weight;
+    const breed = dog.breed;
+    const gender = dog.gender;
+    const isUptoDate = dog.isUptoDate;
+    const getAlong = dog.getAlong;
+    const possessive = dog.possessive;
+    const situation = dog.situation;
+    const playStyle = dog.playStyle;
+    const faveActivity = dog.faveActivity;
+    const dogPic = dog.dogPic.replace('public/', '');
+
+    $('#dogProfileModal').modal('show');
+    console.log("trying to open dog profile modal");
+  });
   
 });
