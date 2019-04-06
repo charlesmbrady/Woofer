@@ -235,7 +235,7 @@ hr {
 }
 
 #right {
-  background: white;
+  background-color: #ebebeb;
   height: 100%;
 }
 
@@ -257,7 +257,6 @@ hr {
   margin-right: 2vw;
 }
 
->>>>>>> Stashed changes
 #settingsBox{
   height: 20%;
   margin-top: 0;
@@ -430,9 +429,9 @@ hr {
   padding-left: 20px;
   width: 50px;
   float: left;
-  /* background-image: url("http://chittagongit.com//images/invite-icon/invite-icon-20.jpg"); */
-  /* background-size: contain; */
-  /* background-repeat: no-repeat; */
+  background-image: url("http://chittagongit.com//images/invite-icon/invite-icon-20.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
   background-color: #FF755D;
 }
 
