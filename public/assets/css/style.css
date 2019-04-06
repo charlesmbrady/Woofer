@@ -244,6 +244,22 @@ hr {
   height: 100%;
 }
 
+<<<<<<< Updated upstream
+=======
+.invite-map-row {
+  position: relative;
+  height: 600px;
+}
+
+#invites {
+  margin-left: 6vw;
+  position: relative;
+  width: 400px;
+  height: 600px;
+  margin-right: 2vw;
+}
+
+>>>>>>> Stashed changes
 #settingsBox{
   height: 20%;
   margin-top: 0;
@@ -279,18 +295,28 @@ hr {
 }
 
 #map {
+<<<<<<< Updated upstream
   height: 600px;
   width: 600px;
   margin-top: 7px;
+=======
+  height: 550px;
+  width: 850px;
+  margin-top: 2vh;
+>>>>>>> Stashed changes
   padding: 10px;
   border: 1px solid #ebebeb;
 }
 
 #match-display {
   background: #fff;
-  height: 40%;
   margin-top: 10px;
+<<<<<<< Updated upstream
   bottom: 5%;
+=======
+  margin-left: 6vw;
+  margin-right: 6vw;
+>>>>>>> Stashed changes
   border: 1px solid #ebebeb;
   white-space: nowrap;
   overflow: auto;
@@ -413,11 +439,13 @@ hr {
 .invite-icon {
   height: 50px;
   margin-top: 10px;
+  padding-left: 20px;
   width: 50px;
   float: left;
-  background-image: url("http://chittagongit.com//images/invite-icon/invite-icon-20.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
+  /* background-image: url("http://chittagongit.com//images/invite-icon/invite-icon-20.jpg"); */
+  /* background-size: contain; */
+  /* background-repeat: no-repeat; */
+  background-color: #FF755D;
 }
 
 .invite-icon:hover {
@@ -440,7 +468,7 @@ hr {
 }
 
 .yourInteractions {
-  color: white;
+  color: #222;
   height: 5%;
   width: 100%;
   padding: 10px;
@@ -472,9 +500,19 @@ a:hover {
   text-decoration: none;
 }
 
+<<<<<<< Updated upstream
 .userInteraction:hover{
   color: lightskyblue;
   background: white;
+=======
+.contributor:hover {
+  opacity: 0.6;
+}
+
+.userInteraction:hover{
+  color: #fff;
+  background: #FF755D;
+>>>>>>> Stashed changes
   text-shadow: 3px black;
   cursor: pointer;
   transition-duration: 200ms;
