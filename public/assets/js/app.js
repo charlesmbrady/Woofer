@@ -474,7 +474,6 @@ $('.dogProfileModal').on('click', function () {
     const situation = $('<h5>').text(`Situations ${dog.dogName} doesn't like: ${dog.situation}`);
     const playStyle = $('<h5>').text(`Playstyle: ${dog.playStyle}`);
     const faveActivity = $('<h5>').text(`Favorite Activity: ${dog.faveActivity}`);
-
     const dogPic = $('<img>').attr('src', dog.dogPic.replace('public/', '')); // for some reason couldn't get this to work
     $('#dogProfileBody').empty();
     $('#dogProfileBody').append(dogPic, age, weight, breed, gender, isUptoDate, getAlong, possessive, situation, playStyle, faveActivity);
