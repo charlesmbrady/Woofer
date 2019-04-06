@@ -52,6 +52,12 @@ $('#add-user').on('click', function (event) {
   }
 });
 
+// TODO: On click, go to dog's profile
+$('.dog-picture').on('click', function (event)  {
+  event.preventDefault();
+  window.location = '/dogprofile';
+});
+
 $('#update-user').on('click', function (event) {
   event.preventDefault();
 
@@ -143,7 +149,8 @@ $('#login-modal').on('click', function (event) {
 
 // open interaction modal
 $('.interaction-modal').on('click', function (event) {
-  console.log('INTERACTION MODAL CLicked test');
+
+  console.log('INTERACTION MODAL CLicked');
   event.preventDefault();
   $('dogPic').empty();
   $('ownerPic').empty();
@@ -436,5 +443,34 @@ socket.on('connect', () => {
 
 socket.on('message', (data)=> {
   console.log(data)
+  
+});
+
+$('.dogProfileModal').on('click', function () {
+  const dogId = $(this).attr('data-id');
+
+  $.ajax({
+    url: `api/dog/${dogId}`,
+    type: 'GET'
+  }).then(dog => {
+    $('#dogProfileLabel').text(dog.dogName);
+    const age = $('<h5>').text(`Age: ${dog.age}`);
+    const weight = $('<h5>').text(`Weight: ${dog.weight}`);
+    const breed = $('<h5>').text(`Breed: ${dog.breed}`);
+    const gender = $('<h5>').text(`Gender: ${dog.gender}`);
+    const isUptoDate = $('<h5>').text(`Vaccinations: ${dog.isUptoDate}`);
+    const getAlong = $('<h5>').text(`Gets along with: ${dog.getAlong}`);
+    const possessive = $('<h5>').text(`Possessive of: ${dog.possessive}`);
+    const situation = $('<h5>').text(`Situations ${dog.dogName} doesn't like: ${dog.situation}`);
+    const playStyle = $('<h5>').text(`Playstyle: ${dog.playStyle}`);
+    const faveActivity = $('<h5>').text(`Favorite Activity: ${dog.faveActivity}`);
+    const dogPic = dog.dogPic.replace('public/assets', '..'); // for some reason couldn't get this to work
+    $('dogProfilebBody').text('');
+    $('#dogProfileBody').append(age, weight, breed, gender, isUptoDate, getAlong, possessive, situation, playStyle, faveActivity);
+    // $('#dogProfileImage').attr('src', dogPic);  // for some reason couldn't get this to work
+    console.log(dogPic);
+
+    $('#dogProfileModal').modal('show');
+  });
   
 });

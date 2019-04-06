@@ -10,18 +10,18 @@
       <div class="card-body">
         <h5 class="card-title">Hi, there!</h5>
         <p class="card-text">Chat with nearby dog owners and schedule playdates</p>
-        <a href="/register" class="btn" id="register-btn">Register</a>
+        <a href="/register" class="btn" id="register-btn" data-test="register">Register</a>
       </div>
     </div>
     <hr class="my-4">
     
     <div>
       {{#if isloggedin}}
-        <p>You are logged in as {{user.firstName}}</p>
-        <a href="/console"> <button type="btn" class="btn">Home</button></a>
-        <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
+        <p data-test="username">You are logged in as {{user.firstName}}</p>
+        <a data-test="home" href="/console"> <button type="btn" class="btn">Home</button></a>
+        <a data-test="logout" href="/logout"> <button type="btn" class="btn">Logout</button></a>
       {{else}}
-        <p>You need to log in to use this app</p>
+        <p data-test="needToLogIn">You need to log in to use this app</p>
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>

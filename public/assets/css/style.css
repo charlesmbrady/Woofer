@@ -1,12 +1,23 @@
 body {
-  color: #fff;
-  background-color: #41aaa8;
+  color: #222;
+  background-color: #ebebeb;
   background-size: cover;
   height:100vh;
 }
 
 nav {
-  background-color: #b5525c;
+  background-color: #FF755D;
+}
+
+.navbar-brand {
+  margin-left: 25rem;
+  font-size: 36px;
+  color: #fff;
+  opacity: 1;
+}
+
+.nav-item:last-child {
+  margin-right: 25rem;
 }
 
 .row {
@@ -20,21 +31,32 @@ nav {
   height: 100vh;
   left: 0;
   top: 0;
-  background-color: #105e62;
+  background-color: #f7b633;
   z-index: -10;
+}
+
+.profile-container {
+  position: relative;
+  width: 66%;
+  margin: 3vh auto;
 }
 
 .profileDescription {
   position: relative;
-  width: 650px;
-  margin-left: 42%;
-  margin-top: -50%;
+  width: 600px;
+  margin-left: 4vw;
+  margin-top: 5vh;
   display: inline-block;
-  font-size: 18px;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
 }
 
 .jumbotron {
-  background: #105e62;
+  background: #f7b633;
   color: #fff;
 }
 
@@ -80,7 +102,7 @@ nav {
 }
 
 .modal {
-  color: #000;
+  color: #222;
 }
 
 #user-form, #create-form {
@@ -95,7 +117,7 @@ nav {
   height: 5rem;
   margin: 0 auto;
   padding: 0;
-  background-color: #105e62;
+  background-color: #f7b633;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   padding-top: 10px;
@@ -125,7 +147,7 @@ nav {
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
-  background: #105e62;
+  background: #f7b633;
   height: 800px;
   border-radius: .25rem;
   margin-bottom: 2%;
@@ -135,7 +157,7 @@ nav {
 .userContainer {
   padding: 3%;
   margin-top: 3rem;
-  background: #233142;
+  background: #f7b633;
   height: 100%;
   border-radius: .25rem;
   margin-bottom: 2%;
@@ -193,7 +215,7 @@ hr {
 }
 
 .card-body {
-  color: #105e62;
+  color: #f7b633;
 }
 
 .main{
@@ -208,7 +230,7 @@ hr {
 }
 
 #left{
-  background: #233142;;
+  background: #f7b633;
   height: 100%;
 }
 
@@ -226,6 +248,7 @@ hr {
   height: 20%;
   margin-top: 0;
   border: 3px solid lightblue;
+  overflow: scroll;
 }
 
 .row-body {
@@ -263,15 +286,15 @@ hr {
 }
 #map {
   height: 50%;
-  border: 1px solid black;
+  border: 1px solid #222;
 }
 
 #match-display {
-  background: lightblue;
+  background: #ebebeb;
   height: 40%;
   margin-top: 10px;
   bottom: 5%;
-  border: 1px solid black;
+  border: 1px solid #222;
   white-space: nowrap;
   overflow: auto;
 }
@@ -280,12 +303,12 @@ hr {
   height: 90%;
   width: 200px;
   display: inline-block;
-  border: 1px solid gray;
+  border: 1px solid #ebebeb;
   margin: 10px 15px 10px 15px;
   padding: 10px;
-  box-shadow: 2px 4px 10px black;
+  box-shadow: 2px 4px 10px #666;
   background: whitesmoke;
-  color: black;
+  color: #222;
   border-radius: 5%;
   text-align: center;
 }
@@ -303,6 +326,7 @@ hr {
 .userDog:hover{
   color: blue;
   background: white;
+  cursor: pointer;
 }
   
 #side-scroll {
@@ -312,7 +336,8 @@ hr {
 .profile-picture, 
 .dog-picture {
   border-radius: 15px;
-  box-shadow: 1px 2px 2px #105e62;
+  padding: 0;
+  box-shadow: 1px 2px 2px #666;
   background-size: contain;
 }
 
@@ -321,7 +346,7 @@ hr {
 }
 
 .dog-picture {
-  margin-top: 1rem;
+  margin: 50px 20px 0 0;
 }
 
 #editProfileBtn   {
@@ -329,7 +354,7 @@ hr {
 }
 
 .gm-style {
-  color: black;
+  color: #222;
 }
   
 .link {
@@ -351,7 +376,7 @@ hr {
   clear: both;
 }
 .edit {
-  color: lightblue;
+  color: #222;
 }
 
 #hiddenUserId {
@@ -363,7 +388,7 @@ hr {
   background-repeat: no-repeat;
   width: 100%;
   height: 100px;
-  border: 1px solid black;
+  border: 1px solid #666;
   text-align: center;
   align-content: center;
 }
@@ -429,15 +454,19 @@ hr {
   display: inline-block;
 }
 footer {
-  background-color: #b5525c;
+  background-color: #FF755D;
   position: fixed;
   width: 100%;
   height: 15vh;
   margin: 0 auto;
   bottom: 0;
   left: 0;
-  padding-top: 15px;
+  padding-top: 1rem;
+  padding-left: 25rem;
+  padding-right: 25rem;
 }
+
+
 
 a {
   color: #fff;
@@ -449,4 +478,12 @@ a:hover {
   opacity: 1;
   text-decoration: none;
 
+}
+
+.userInteraction:hover{
+  color: lightskyblue;
+  background: white;
+  text-shadow: 3px black;
+  cursor: pointer;
+  transition-duration: 200ms;
 }
