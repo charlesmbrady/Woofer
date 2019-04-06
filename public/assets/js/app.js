@@ -388,20 +388,24 @@ $('.dogProfileModal').on('click', function () {
     url: `api/dog/${dogId}`,
     type: 'GET'
   }).then(dog => {
-    const age = dog.age;
-    const weight = dog.weight;
-    const breed = dog.breed;
-    const gender = dog.gender;
-    const isUptoDate = dog.isUptoDate;
-    const getAlong = dog.getAlong;
-    const possessive = dog.possessive;
-    const situation = dog.situation;
-    const playStyle = dog.playStyle;
-    const faveActivity = dog.faveActivity;
-    const dogPic = dog.dogPic.replace('public/', '');
+    $('#dogProfileLabel').text(dog.dogName);
+    const age = $('<h5>').text(`Age: ${dog.age}`);
+    const weight = $('<h5>').text(`Weight: ${dog.weight}`);
+    const breed = $('<h5>').text(`Breed: ${dog.breed}`);
+    const gender = $('<h5>').text(`Gender: ${dog.gender}`);
+    const isUptoDate = $('<h5>').text(`Vaccinations: ${dog.isUptoDate}`);
+    const getAlong = $('<h5>').text(`Gets along with: ${dog.getAlong}`);
+    const possessive = $('<h5>').text(`Possessive of: ${dog.possessive}`);
+    const situation = $('<h5>').text(`Situations ${dog.dogName} doesn't like: ${dog.situation}`);
+    const playStyle = $('<h5>').text(`Playstyle: ${dog.playStyle}`);
+    const faveActivity = $('<h5>').text(`Favorite Activity: ${dog.faveActivity}`);
+    const dogPic = dog.dogPic.replace('public/assets', '..'); // for some reason couldn't get this to work
+    $('dogProfilebBody').text('');
+    $('#dogProfileBody').append(age, weight, breed, gender, isUptoDate, getAlong, possessive, situation, playStyle, faveActivity);
+    // $('#dogProfileImage').attr('src', dogPic);  // for some reason couldn't get this to work
+    console.log(dogPic);
 
     $('#dogProfileModal').modal('show');
-    console.log("trying to open dog profile modal");
   });
   
 });
