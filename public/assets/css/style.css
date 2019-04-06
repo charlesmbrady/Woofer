@@ -61,36 +61,23 @@ nav {
 }
 
 .btn {
-  background-color: #FF755D;
+  background-color: #41aaa8;
   color: #fff;
-  border: 1px solid rgb(255, 161, 145);
-  opacity: 1;
+  border: 1px solid #a2eae2;
 }
 
 .btn:hover {
-  background-color: rgb(255, 161, 145);
-}
-
-.close-btn {
-  background-color: #fff;
-  color: #222;
-  border: none;
-}
-
-.close-btn:hover {
-  background-color: #ebebeb;
-  color: #222;
+  background-color: #a2eae2;
 }
 
 #register-btn {
-  background-color: #FF755D;
+  background-color: #b5525c;
   color: #fff;
-  border: 1px solid rgb(255, 161, 145);
-  opacity: 1;
+  border: 1px solid #cc888e;
 }
 
 #register-btn:hover {
-  background-color: rgb(255, 161, 145);
+  background-color: #cc888e;
 }
 
 .sidescroll-container {
@@ -128,16 +115,16 @@ nav {
   position: relative;
   width: 100%;
   height: 5rem;
-  margin: 0 auto 1rem auto;
-  padding: 25px 15px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #f7b633;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  color: #222;
-  background-color: #fff;
+  padding-top: 10px;
 }
 
 .header-wrap {
-  color: #222;
+  color: #fff;
 }
 
 #update-err-msg,
@@ -158,10 +145,12 @@ nav {
 }
 
 .container {
-  margin-top: 15vh;
-  background: #fff;
+  padding-bottom: 2%;
+  margin-top: 10%;
+  background: #f7b633;
   height: 800px;
   border-radius: .25rem;
+  margin-bottom: 2%;
   width: 600px;
 }
 
@@ -230,43 +219,36 @@ hr {
 }
 
 .main{
-  height: 100vh;
-  width: 100vw;
-  margin: 0 auto;
-  background: #ebebeb;
-}
-
-.container-fluid {
-  padding: 0;
+  height: 100%;
+  margin: 50px auto;
+  background: black;
 }
 
 #userCard {
-  width: 90%;
+  width: 100%;
   height: 100%;
 }
 
 #left{
   background: #f7b633;
-  height: 100vh;
-  width: 33%;
+  height: 100%;
 }
 
 #right {
-  height: 100vh;
+  background: white;
+  height: 100%;
 }
 
 #userBox{
-  margin: 0 auto;
-  margin-top: 10rem;
+  margin-top: 10px;
   height: 100%;
-  width: 75%;
 }
 
 #settingsBox{
   height: 20%;
   margin-top: 0;
-  background-color: #fff;
-  overflow-y: scroll;
+  border: 3px solid lightblue;
+  overflow: scroll;
 }
 
 .row-body {
@@ -282,14 +264,14 @@ hr {
 }
 
 #edit {
-  height: 50px;
+  height: 7%;
 }
 
 #userDogs {
   height: 30%;
   width: 100%;
-  background-color: #fff;
-  overflow-y: scroll;
+  border: 1px solid white;
+  overflow: scroll;
 }
 
 .userDog * {
@@ -297,38 +279,38 @@ hr {
 }
 
 #map {
-  height: 600px;
-  width: 600px;
-  margin-top: 12vh;
+  height: 450px;
+  width: 100%;
+  margin-top: 7px;
   padding: 10px;
-  border: 1px solid #ebebeb;
+}
+#map {
+  height: 50%;
+  border: 1px solid #222;
 }
 
 #match-display {
   background: #ebebeb;
-  height: 400px;
-  width: 66%;
-  margin-top: 5rem;
-  bottom: 5rem;
+  height: 40%;
+  margin-top: 10px;
+  bottom: 5%;
+  border: 1px solid #222;
   white-space: nowrap;
-  overflow-x: auto;
+  overflow: auto;
 }
 
 .match {
-  height: 300px;
-  width: 250px;
+  height: 90%;
+  width: 200px;
   display: inline-block;
-  margin: 10px;
-  padding: 20px;
-  box-shadow: 1px 2px 4px #666;
-  background: #fff;
+  border: 1px solid #ebebeb;
+  margin: 10px 15px 10px 15px;
+  padding: 10px;
+  box-shadow: 2px 4px 10px #666;
+  background: whitesmoke;
   color: #222;
   border-radius: 5%;
   text-align: center;
-}
-
-.dog-btns {
-  margin-top: 10px;
 }
 
 .userDog{
@@ -342,7 +324,7 @@ hr {
   padding: 5px;
 }
 .userDog:hover{
-  color: #888;
+  color: blue;
   background: white;
   cursor: pointer;
 }
@@ -417,6 +399,11 @@ hr {
   margin: 0 auto;
 }
 
+.otherDogBtn {
+  float: right;
+  margin-top: 15px;
+}
+
 .dogPicList {
   float: right;
   height: 100%;
@@ -462,10 +449,10 @@ hr {
   padding: 10px;
 }
 
+
 .userInteractions * {
   display: inline-block;
 }
-
 footer {
   background-color: #FF755D;
   position: fixed;
@@ -479,14 +466,18 @@ footer {
   padding-right: 25rem;
 }
 
+
+
 a {
   color: #fff;
+  opacity: 0.5;
 }
 
 a:hover {
   color: #fff;
   opacity: 1;
   text-decoration: none;
+
 }
 
 .userInteraction:hover{
