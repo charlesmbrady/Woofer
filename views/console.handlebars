@@ -8,45 +8,42 @@
       <div id="userBox">
         <div id="userBackgroundImage" style="background-image: url({{{userImg}}});" data-id="{{consoleId}}"></div>
         <div id="edit">
-          <div><a class="edit link linkleft" href="/editprofile">Edit Profile</a><a class="edit link linkright" href="/profile">View
-              Profile</a></div>
+          <div>
+            <a class="edit link linkleft text-white" href="/editprofile">Edit Profile</a>
+            <a class="edit link linkright text-white" href="/profile">ViewProfile</a>
+          </div>
           <div class="addDog">
-            <h6>Your Dogs</h6><a class="link addlink" href="/survey" id="addDogBtn" src="https://www.freeiconspng.com/uploads/blue-plus-icon-6.png"
-              alt=""></a>
+            <h4 class="text-white">Your Dogs</h4>
+            <a class="link addlink" href="/survey" id="addDogBtn" src="https://www.freeiconspng.com/uploads/blue-plus-icon-6.png"alt=""></a>
           </div>
         </div>
-
         <div id="userDogs">
           {{#each dogs}}
           {{> dogs/dog-block}}
           {{/each}}
-
         </div>
-        <h4 class="yourInteractions">Invites</h4>
-        <div id="settingsBox">
-          {{#each interactions}}
-          {{> interactions/interaction-block}}
-          {{/each}}
+      </div>
+    </div>
 
+    <div class="col-md-9" id="right">
+      <div class="row" style="margin-top:5vh;">
+        <div id="map">map</div>
+        <div>
+          <h4 class="yourInteractions">Invites</h4>
+          <div id="settingsBox">
+            {{#each interactions}}
+            {{> interactions/interaction-block}}
+            {{/each}}
+          </div>
         </div>
       </div>
 
-
-    </div>
-
-
-    <div class="col-md-9" id="right">
-      <div id="map">map</div>
       <div id="match-display">
         {{#each matches}}
         {{> matches/dogMatch-block}}
         {{/each}}
       </div>
-
-
     </div>
-
-
 
   </div>
 </div>
@@ -61,6 +58,6 @@
   {{> modal/dogProfile-block}}
 </div>
 
-
+{{> nav/footer}}
 
 <!--end main container-->
