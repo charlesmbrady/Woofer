@@ -319,6 +319,7 @@ hr {
 }
 .userDogName{
   padding: 5px;
+  color: #222;
 }
 .userDog:hover{
   color: #666;
