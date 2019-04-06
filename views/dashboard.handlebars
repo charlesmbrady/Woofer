@@ -17,15 +17,9 @@
     
     <div>
       {{#if isloggedin}}
-<<<<<<< HEAD
-        <p>You are logged in as {{user.firstName}}</p>
-        <a href="/console"> <button type="btn" class="btn">Home</button></a>
-        <a href="/logout"> <button type="btn" class="btn close-btn">Logout</button></a>
-=======
         <p data-test="username">You are logged in as {{user.firstName}}</p>
         <a data-test="home" href="/console"> <button type="btn" class="btn">Home</button></a>
         <a data-test="logout" href="/logout"> <button type="btn" class="btn">Logout</button></a>
->>>>>>> fab7f0600ea76963bcc65dda0ab524daf6cce366
       {{else}}
         <p data-test="needToLogIn">You need to log in to use this app</p>
       {{/if}}
