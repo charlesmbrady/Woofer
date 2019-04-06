@@ -226,6 +226,7 @@ hr {
   height: 20%;
   margin-top: 0;
   border: 3px solid lightblue;
+  overflow: scroll;
 }
 
 .row-body {
@@ -303,6 +304,7 @@ hr {
 .userDog:hover{
   color: blue;
   background: white;
+  cursor: pointer;
 }
   
 #side-scroll {
@@ -449,4 +451,12 @@ a:hover {
   opacity: 1;
   text-decoration: none;
 
+}
+
+.userInteraction:hover{
+  color: lightskyblue;
+  background: white;
+  text-shadow: 3px black;
+  cursor: pointer;
+  transition-duration: 200ms;
 }
