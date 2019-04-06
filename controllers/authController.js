@@ -14,6 +14,7 @@ module.exports = (passport, db) => {
           password: userArray[0].password,
           firstName: userArray[0].firstName,
           lastName: userArray[0].lastName,
+          about: userArray[0].about,
           userPic: req.file.path
         };
 

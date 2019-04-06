@@ -15,48 +15,48 @@ module.exports = (db) => {
     userPic: 'public/assets/uploads/tormund.jpeg',
     isAdmin: false
   });
-  
+
   db.User.bulkCreate([
     {
-    firstName: 'Jane',
-    lastName: 'Jobs',
-    email: 'j@j.co',
-    password: process.env.USER_PWD,
-    userPic: 'public/assets/uploads/ChiaraGrabmayr-300x300.jpg',
-    isAdmin: false
-  },
-  {
-    firstName: 'Karen',
-    lastName: 'Filapelli',
-    email: 'k@k.co',
-    password: process.env.USER_PWD,
-    userPic: 'public/assets/uploads/ee4b0b7b4ae168e78104b6459d5b00f0.jpeg',
-    isAdmin: false
-  },
-  {
-    firstName: 'Steven',
-    lastName: 'Stevenson',
-    email: 's@s.co',
-    password: process.env.USER_PWD,
-    userPic: 'public/assets/uploads/tormund.jpeg',
-    isAdmin: false
-  },
-  {
-    firstName: 'Mike',
-    lastName: 'Mikerson',
-    email: 'm@m.co',
-    password: process.env.USER_PWD,
-    userPic: 'public/assets/uploads/trumptwitter-300x300.jpg',
-    isAdmin: false
-  },
-  {
-    firstName: 'Bob',
-    lastName: 'Bobbie',
-    email: 'b@b.co',
-    password: process.env.USER_PWD,
-    userPic: 'public/assets/uploads/6145884_orig.jpg',
-    isAdmin: false
-  }]);
+      firstName: 'Jane',
+      lastName: 'Jobs',
+      email: 'j@j.co',
+      password: process.env.USER_PWD,
+      userPic: 'public/assets/uploads/ChiaraGrabmayr-300x300.jpg',
+      isAdmin: false
+    },
+    {
+      firstName: 'Karen',
+      lastName: 'Filapelli',
+      email: 'k@k.co',
+      password: process.env.USER_PWD,
+      userPic: 'public/assets/uploads/ee4b0b7b4ae168e78104b6459d5b00f0.jpeg',
+      isAdmin: false
+    },
+    {
+      firstName: 'Steven',
+      lastName: 'Stevenson',
+      email: 's@s.co',
+      password: process.env.USER_PWD,
+      userPic: 'public/assets/uploads/tormund.jpeg',
+      isAdmin: false
+    },
+    {
+      firstName: 'Mike',
+      lastName: 'Mikerson',
+      email: 'm@m.co',
+      password: process.env.USER_PWD,
+      userPic: 'public/assets/uploads/trumptwitter-300x300.jpg',
+      isAdmin: false
+    },
+    {
+      firstName: 'Bob',
+      lastName: 'Bobbie',
+      email: 'b@b.co',
+      password: process.env.USER_PWD,
+      userPic: 'public/assets/uploads/6145884_orig.jpg',
+      isAdmin: false
+    }]);
   db.Dog.bulkCreate([{
     dogName: 'Spot',
     age: '2',
@@ -162,32 +162,30 @@ module.exports = (db) => {
     dogPic: 'public/assets/uploads/p_101348140-300x300.jpg',
     UserId: '5'
   }
-]);
-db.Location.create({
-  whatKind: 'dog park',
-  address: '1090 Dog Ln',
-  name: 'Oakwood'
-});
-db.Interaction.create({
-  comment: "A comment about the interaction",
-  location: "dog park",
-  date: "2019-04-05",
-  time: "12:00",
-  invitedDog: 2,
-  invitedOwner: 7,
-  UserId: 1,
-  LocationId: 1
-});
-db.Interaction.create({
-  comment: "A comment about the interaction",
-  location: "dog park",
-  date: "2019-04-05",
-  time: "12:00",
-  invitedDog: 3,
-  invitedOwner: 7,
-  UserId: 1,
-  LocationId: 1
-});
-
-
+  ]);
+  db.Location.create({
+    whatKind: 'dog park',
+    address: '1090 Dog Ln',
+    name: 'Oakwood'
+  });
+  db.Interaction.create({
+    comment: 'A comment about the interaction',
+    location: 'dog park',
+    date: '2019-04-05',
+    time: '12:00',
+    invitedDog: 2,
+    invitedOwner: 7,
+    UserId: 1,
+    LocationId: 1
+  });
+  db.Interaction.create({
+    comment: 'A comment about the interaction',
+    location: 'dog park',
+    date: '2019-04-05',
+    time: '12:00',
+    invitedDog: 3,
+    invitedOwner: 7,
+    UserId: 1,
+    LocationId: 1
+  });
 };
