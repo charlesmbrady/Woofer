@@ -4,10 +4,10 @@ $('#add-user').on('click', function (event) {
   // Need to implement auto-login
 
   // Redirect new user to console upon registration
-  location.href = '/console';
+  // location.href = '/console';
 
   let file = document.getElementById('userPic').files[0];
-  console.log("FILE", file);
+  console.log('FILE', file);
   let userInfo = new FormData();
   userInfo.append('userPic', file);
   let userArray = [];
@@ -19,21 +19,22 @@ $('#add-user').on('click', function (event) {
   };
   userArray.push(newAccount);
   userInfo.append('userArray', JSON.stringify(userArray));
-  console.log("USER ARRAY", userArray);
-  console.log("New Account", newAccount);
+  console.log('USER ARRAY', userArray);
+  console.log('New Account', newAccount);
   
-$('.profile-picture').on('click', function (event)  {
-  event.preventDefault();
-  let file = document.getElementById('updatePic').files[0];
-  let userInfo = new FormData();
-  userInfo.append('userPic', file);
-});
+  // update profile pic
+  $('.profile-picture').on('click', function (event) {
+    event.preventDefault();
+    let file = document.getElementById('updatePic').files[0];
+    let userInfo = new FormData();
+    userInfo.append('userPic', file);
+  });
 
-  if (newAccount.password.length > 0 
-    && newAccount.email.length > 0 
-    && newAccount.password.length > 0 
-    && newAccount.lastName.length > 0 
-    && newAccount.firstName.length > 0) {
+  if (newAccount.password.length > 0 &&
+    newAccount.email.length > 0 &&
+    newAccount.password.length > 0 &&
+    newAccount.lastName.length > 0 &&
+    newAccount.firstName.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
@@ -42,9 +43,9 @@ $('.profile-picture').on('click', function (event)  {
       processData: false,
       contentType: false,
       cache: false,
-      success: function(data) {
+      success: function (data) {
         console.log(data);
-      window.location.href = '/';
+        window.location.href = '/';
       }
     });
   } else {
@@ -54,7 +55,7 @@ $('.profile-picture').on('click', function (event)  {
 });
 
 // TODO: On click, go to dog's profile
-$('.dog-picture').on('click', function (event)  {
+$('.dog-picture').on('click', function (event) {
   event.preventDefault();
   window.location = '/dogprofile';
 });
@@ -75,11 +76,11 @@ $('#update-user').on('click', function (event) {
   // $('#change-user-modal').modal('show');
   console.log(changeUser);
 
-  if (changeUser.password.length > 0 
-    && changeUser.email.length > 0 
-    && changeUser.password.length > 0 
-    && changeUser.lastName.length > 0 
-    && changeUser.firstName.length > 0) {
+  if (changeUser.password.length > 0 &&
+    changeUser.email.length > 0 &&
+    changeUser.password.length > 0 &&
+    changeUser.lastName.length > 0 &&
+    changeUser.firstName.length > 0) {
     $.ajax({
       type: 'PUT',
       url: `/api/user/${id}`,
@@ -141,22 +142,22 @@ $('#register').on('click', function (event) {
   window.location.href = '/register';
 });
 
-//open login modal
+// open login modal
 $('#login-modal').on('click', function (event) {
   console.log('login-modal button clicked');
   event.preventDefault();
   $('#user-info').modal('show');
 });
 
-//open interaction modal
+// open interaction modal
 $('.interaction-modal').on('click', function (event) {
+
   console.log('INTERACTION MODAL CLicked');
   event.preventDefault();
   $('dogPic').empty();
   $('ownerPic').empty();
   const dogId = $(this).attr('data-id');
   console.log(dogId);
-
   $.ajax({
     url: `api/dog/${dogId}`,
     type: 'GET'
@@ -166,14 +167,55 @@ $('.interaction-modal').on('click', function (event) {
     const userImage = $('<img>').attr('src', response.User.userPic.replace('public/', ''));
     dogImage.addClass('intDogPic');
     dogImage.attr('id', 'dog-pic');
-    dogImage.attr("data-id", response.id);
+    dogImage.attr('data-id', response.id);
     userImage.addClass('intUserPic');
     userImage.attr('id', 'owner-pic');
-    userImage.attr("data-id", response.UserId);
-    $("#dogPic").append(dogImage);
-    $("#ownerPic").append(userImage);
+    userImage.attr('data-id', response.UserId);
+    $('#dogPic').append(dogImage);
+    $('#ownerPic').append(userImage);
     $('#interaction-invite').modal('show');
-  });  
+  });
+
+});
+
+$('.interactionDeets').on('click', function (e) {
+  $('#ownerPic-interaction').empty();
+  $('#name-detail').empty();
+  $('#where-detail').empty();
+  $('#when-detail').empty();
+  $('#date-detail').empty();
+  $('#date-commment').empty();
+  $('#dog-detail').empty();
+  $('#dogPic-interaction').empty();
+  e.preventDefault();
+  console.log('INTERACTION CLICKED');
+  const id = $(this).attr('data-id');
+  const dogId = $(this).attr('data-dogId');
+  console.log('ID', id);
+  $.ajax({
+    url: `/api/hang/${id}`,
+    type: 'GET'
+  }).then(result => {
+    console.log(result);
+    const ownerPicInter = $('<img>').attr('src', result.User.userPic.replace('public/', ''));
+    $('#ownerPic-interaction').append(ownerPicInter);
+    $('#name-detail').append(result.User.name);
+    $('#where-detail').append(result.location);
+    $('#when-detail').append(result.time);
+    $('#date-detail').append(result.date);
+    $('#date-comment').append(result.comment);
+    $('#interaction-accept, #interaction-decline').attr('data-id', id);
+  });
+  $.ajax({
+    url: `/api/dog/${dogId}`,
+    type: 'GET'
+  }).then(result => {
+    console.log(result);
+    const dogPicInter = $('<img>').attr('src', result.dogPic.replace('public/', ''));
+    $('#dog-detail').append(result.dogName);
+    $('#dogPic-interaction').append(dogPicInter);
+    $('#interaction-detail').modal('show');
+  });
 });
 
 $('#go-home').on('click', function (event) {
@@ -200,6 +242,36 @@ $('#login').on('click', function (event) {
   });
 });
 
+$('#interaction-accept').on('click', function (e) {
+  e.preventDefault();
+  const interactionDecision = {
+    status: 'accepted',
+    id: $(this).attr('data-id')
+  };
+  $.ajax({
+    url: 'api/hang/',
+    type: 'PUT',
+    data: interactionDecision
+  }, (result) => {
+    console.log(result);
+    window.location.href = '/console';
+  });
+});
+$('#interaction-decline').on('click', function (e) {
+  e.preventDefault();
+  const interactionDecision = {
+    status: 'declined',
+    id: $(this).attr('data-id')
+  };
+  $.ajax({
+    url: 'api/hang/',
+    type: 'PUT',
+    data: interactionDecision
+  }, (result) => {
+    console.log(result);
+    window.location.href = '/console';
+  });
+});
 $('#interaction-create').on('click', function (e) {
   const interactionInfo = {
     comment: $('#comment').val().trim(),
@@ -238,7 +310,7 @@ const postInteraction = (newInt) => {
   }).then(result => {
     console.log(result);
   });
-}
+};
 
 var map;
 var service;
@@ -249,13 +321,13 @@ var myPlaceId;
 var myLocation;
 var results;
 
-function initialize() {
+function initialize () {
   var location = new google.maps.LatLng(35.913200, -79.055847);
 
   infowindow = new google.maps.InfoWindow();
 
   map = new google.maps.Map(
-      document.getElementById('map'), {center: location, zoom: 8});
+    document.getElementById('map'), { center: location, zoom: 8 });
 
   var request = {
     location: location,
@@ -267,17 +339,17 @@ function initialize() {
     // 'Place ID: ' + place.place_id + '<br>' +
     // place.formatted_address + '</div>');
 
-    infowindow = new google.maps.InfoWindow();
-    // infowindow = new google.maps.InfoWindow(contentString);
-    //  ({
-    //   content: contentString,
-    // }); 
+  infowindow = new google.maps.InfoWindow();
+  // infowindow = new google.maps.InfoWindow(contentString);
+  //  ({
+  //   content: contentString,
+  // });
   //  ({ content:'<p style="color:black;">(</p>'});;
   //   service = new google.maps.places.PlacesService(map);
-  
+
   service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
-  
+
   let locationArray = [];
 
   function callback (results, status) {
@@ -290,48 +362,46 @@ function initialize() {
           whatKind: results[i].types[0],
           address: results[i].vicinity
         };
-        console.log("NEW PLACE", newPlace)
+        console.log('NEW PLACE', newPlace);
         locationArray.push(newPlace);
-  
       };
-      console.log("Location Array", locationArray);
+      console.log('Location Array', locationArray);
       map.setCenter(results[0].geometry.location);
       addLocations(locationArray);
       addtoModal(locationArray);
     };
   };
 };
-//add location array to db
+// add location array to db
 const addLocations = (locations) => {
   locations.forEach(location => {
     $.post('api/location', location, (result) => {
       console.log(result);
-    })
+    });
   });
 };
 const addtoModal = (locations) => {
   locations.forEach(location => {
-    console.log("LOCATION", location);
+    console.log('LOCATION', location);
     let newOption = $('<option>').val(location.name).html(location.name);
     $('#location').append(newOption);
- });
-}
+  });
+};
 
-
-function createMarker(place) {
+function createMarker (place) {
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
     placeId: myPlaceId,
     location: myLocation
   });
-  
+
   // myPlaceId = results[0].place_id;
   // myLocation = results[0].geometry.location;
 
-  content = 'place.name' + 'place.formatted_phone_number' + 'place.formatted_address' + 'place.photos'
-  
-  google.maps.event.addListener(marker, 'click', function() {
+  content = 'place.name' + 'place.formatted_phone_number' + 'place.formatted_address' + 'place.photos';
+
+  google.maps.event.addListener(marker, 'click', function () {
     infowindow.setContent(place.name, place.formatted_phone_number, place.formatted_address, place.photos);
     console.log(place.name);
     console.log(place.formatted_phone_number);
@@ -342,18 +412,18 @@ function createMarker(place) {
   });
 
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
+    navigator.geolocation.getCurrentPosition(function (position) {
       var pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      infoWindow = new google.maps.InfoWindow;
+      infoWindow = new google.maps.InfoWindow();
 
       infoWindow.setPosition(pos);
       infoWindow.setContent('You are here');
       infoWindow.open(map);
       map.setCenter(pos);
-    }, function() {
+    }, function () {
       handleLocationError(true, infoWindow, map.getCenter());
     });
   } else {
@@ -361,30 +431,29 @@ function createMarker(place) {
     handleLocationError(false, infoWindow, map.getCenter());
   };
 
-  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-  infoWindow.open(map);
+  function handleLocationError (browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation
+      ? 'Error: The Geolocation service failed.'
+      : 'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
   };
 };
 
-//____________________________ search buttons/calls _________________//
+// ____________________________ search buttons/calls _________________//
 
 // $("#dog-search").on("click", function(){
-  
+
 // });
 const socket = io();
 // connected to the server
 socket.on('connect', () => {
   console.log(`Connected to server`);
-  console.log(socket.id)
+  console.log(socket.id);
 });
 
-socket.on('message', (data)=> {
-  console.log(data)
-  
+socket.on('message', (data) => {
+  console.log(data);
 });
 
 $('.dogProfileModal').on('click', function () {
@@ -405,13 +474,13 @@ $('.dogProfileModal').on('click', function () {
     const situation = $('<h5>').text(`Situations ${dog.dogName} doesn't like: ${dog.situation}`);
     const playStyle = $('<h5>').text(`Playstyle: ${dog.playStyle}`);
     const faveActivity = $('<h5>').text(`Favorite Activity: ${dog.faveActivity}`);
-    const dogPic = dog.dogPic.replace('public/assets', '..'); // for some reason couldn't get this to work
-    $('dogProfilebBody').text('');
-    $('#dogProfileBody').append(age, weight, breed, gender, isUptoDate, getAlong, possessive, situation, playStyle, faveActivity);
+
+    const dogPic = $('<img>').attr('src', dog.dogPic.replace('public/', '')); // for some reason couldn't get this to work
+    $('#dogProfileBody').empty();
+    $('#dogProfileBody').append(dogPic, age, weight, breed, gender, isUptoDate, getAlong, possessive, situation, playStyle, faveActivity);
     // $('#dogProfileImage').attr('src', dogPic);  // for some reason couldn't get this to work
     console.log(dogPic);
 
     $('#dogProfileModal').modal('show');
   });
-  
 });

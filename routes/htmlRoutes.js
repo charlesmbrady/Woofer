@@ -33,7 +33,7 @@ module.exports = (db) => {
     }
   });
 
-  // Load page to edit profile 
+  // Load page to edit profile
   router.get('/editprofile', (req, res) => {
     if (req.isAuthenticated()) {
       db.User.findOne({
@@ -101,31 +101,28 @@ module.exports = (db) => {
               [Op.ne]: req.session.passport.user.id
             }
           }
-        }).then(function(otherDogs){
+        }).then(function (otherDogs) {
           db.Interaction.findAll({
             where: {
               invitedOwner: req.session.passport.user.id
             }
-          }).then(function(dbInteractions) {
-            dbDogs.forEach(function(dog){
-              dog.dogPic = dog.dogPic.replace("public/","");
+          }).then(function (dbInteractions) {
+            dbDogs.forEach(function (dog) {
+              dog.dogPic = dog.dogPic.replace('public/', '');
             });
-  
-            otherDogs.forEach(function(dog){
-              dog.dogPic = dog.dogPic.replace("public/","");
+            otherDogs.forEach(function (dog) {
+              dog.dogPic = dog.dogPic.replace('public/', '');
             });
-          
             const user = {
               consoleId: req.session.passport.user.id,
               user: req.session.passport.user,
               isloggedin: req.isAuthenticated(),
-              userImg: req.session.passport.user.userPic.replace("public/", ""),
+              userImg: req.session.passport.user.userPic.replace('public/', ''),
               dogs: dbDogs,
               matches: otherDogs,
               interactions: dbInteractions
             };
             res.render('console', user);
-
           });
         });
       });
