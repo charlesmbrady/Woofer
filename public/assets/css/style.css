@@ -244,8 +244,6 @@ hr {
   height: 100%;
 }
 
-<<<<<<< Updated upstream
-=======
 .invite-map-row {
   position: relative;
   height: 600px;
@@ -295,15 +293,9 @@ hr {
 }
 
 #map {
-<<<<<<< Updated upstream
-  height: 600px;
-  width: 600px;
-  margin-top: 7px;
-=======
   height: 550px;
   width: 850px;
   margin-top: 2vh;
->>>>>>> Stashed changes
   padding: 10px;
   border: 1px solid #ebebeb;
 }
@@ -311,12 +303,8 @@ hr {
 #match-display {
   background: #fff;
   margin-top: 10px;
-<<<<<<< Updated upstream
-  bottom: 5%;
-=======
   margin-left: 6vw;
   margin-right: 6vw;
->>>>>>> Stashed changes
   border: 1px solid #ebebeb;
   white-space: nowrap;
   overflow: auto;
@@ -500,11 +488,6 @@ a:hover {
   text-decoration: none;
 }
 
-<<<<<<< Updated upstream
-.userInteraction:hover{
-  color: lightskyblue;
-  background: white;
-=======
 .contributor:hover {
   opacity: 0.6;
 }
@@ -512,7 +495,6 @@ a:hover {
 .userInteraction:hover{
   color: #fff;
   background: #FF755D;
->>>>>>> Stashed changes
   text-shadow: 3px black;
   cursor: pointer;
   transition-duration: 200ms;
