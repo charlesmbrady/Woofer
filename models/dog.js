@@ -36,7 +36,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     // TODO: fave-activity
     faveActivity: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      defaultValue: 'Playing fetch'
     },
     dogPic: {
       type: DataTypes.STRING

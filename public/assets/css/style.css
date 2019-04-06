@@ -487,3 +487,9 @@ a:hover {
   cursor: pointer;
   transition-duration: 200ms;
 }
+
+#inputAbout {
+  background: #e8F0FE;
+  height: 90px;
+  padding: 1px 2px;
+}
