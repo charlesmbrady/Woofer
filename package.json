@@ -1,7 +1,7 @@
 {
-  "name": "project2-starter-auth",
+  "name": "Woofer",
   "version": "1.0.0",
-  "description": "Project2 Starter with Express, Handlebars, Sequelize, and Authentication with Passport.",
+  "description": "Woofer- Project 2",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alperg/project2-starter-auth.git"
+    "url": "git+https://github.com/charlesmbrady/Woofer.git"
   },
   "engines": {
     "npm": "5.7.1",
@@ -21,7 +21,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alperg/project2-starter-auth/issues"
+    "url": "https://github.com/alperg/charlesmbrady/Woofer/issues"
   },
   "standard": {
     "globals": [
@@ -35,7 +35,7 @@
       "expect"
     ]
   },
-  "homepage": "https://github.com/alperg/project2-starter-auth#readme",
+  "homepage": "https://github.com/alperg/charlesmbrady/Woofer#readme",
   "dependencies": {
     "bcrypt": "^3.0.0",
     "connect-session-sequelize": "^6.0.0",
@@ -68,5 +68,8 @@
     "eslint-plugin-standard": "4.0.0",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
+  },
+  "directories": {
+    "test": "test"
   }
 }
